@@ -3,258 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Dhanush Munagala</title>
+<title>Dhanush Munagala · Portfolio</title>
+<meta name="description" content="Dhanush Munagala — Data Analyst, Business Intelligence Developer, and GTM Strategy Consultant. MS MIS at UH Bauer, GPA 4.0. SQL, Power BI, Python, R, Machine Learning."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --bg:rgba(5,5,10,0.93);
-  --raw:#05050a;
-  --card:rgba(16,16,26,0.94);
-  --card2:rgba(22,22,34,0.96);
-  --border:rgba(255,255,255,0.07);
-  --border-hi:rgba(196,181,253,0.3);
-  --text:#dddde8;--muted:#9090a8;--dim:#585870;
-  --accent:#c4b5fd;--gold:#f9c74f;--teal:#67e8f9;--rose:#f9a8d4;
-  --pf:'Playfair Display',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --mono:'DM Mono',monospace;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--raw);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;cursor:none;font-size:16px}
-
-/* ── FIXED LAYERS ── */
-#grav-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-#comet-canvas{position:fixed;inset:0;z-index:9996;pointer-events:none}
-.cdot{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:screen}
-.cdot.hover{width:22px;height:22px;background:rgba(196,181,253,.18);border:1.5px solid rgba(196,181,253,.7)}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(28px) saturate(1.4);background:rgba(4,4,9,.72);border-bottom:1px solid var(--border);transition:padding .3s}
-nav.sc{padding:14px 64px}
-.nlogo{font-family:var(--pf);font-size:18px;color:var(--accent)}
-.nlogo em{color:var(--muted);font-style:normal;font-family:var(--sans);font-size:13px;margin-left:6px}
-.nlinks{display:flex;gap:36px;list-style:none}
-.nlinks a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.02em;transition:color .2s;position:relative}
-.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s}
-.nlinks a:hover{color:var(--text)}
-.nlinks a:hover::after{width:100%}
-
-/* ── ALL SECTIONS TRANSPARENT SO GRAV CANVAS BLEEDS THROUGH ── */
-section{position:relative;z-index:2;background:transparent}
-.wrap{max-width:1080px;margin:0 auto;padding:120px 64px;position:relative;z-index:1}
-/* Subtle dark overlay per section for readability */
-.wrap::before{content:'';position:absolute;inset:0;background:rgba(4,4,9,.82);border-radius:0;z-index:-1;pointer-events:none}
-
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;padding:140px 64px 80px;overflow:hidden}
-.hero-wrap{max-width:820px;position:relative;z-index:2}
-.welcome-line{font-family:var(--mono);font-size:13px;color:rgba(196,181,253,.52);letter-spacing:.42em;text-transform:uppercase;opacity:0;animation:riseUp .8s .05s forwards;position:absolute;top:100px;left:0;right:0;text-align:center;z-index:3;pointer-events:none}
-.htag{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:riseUp .8s .25s forwards}
-.htag::before{content:'';width:36px;height:1px;background:var(--accent)}
-h1.hname{font-family:var(--pf);font-size:clamp(54px,9vw,100px);font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--text);opacity:0;animation:riseUp .9s .45s forwards}
-h1.hname .hl{background:linear-gradient(135deg,var(--accent),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.htagline{font-size:18px;color:var(--muted);margin-top:28px;max-width:580px;line-height:1.75;font-weight:300;opacity:0;animation:riseUp .9s .65s forwards}
-.htagline strong{color:var(--text);font-weight:500}
-.htyping{font-family:var(--mono);font-size:14px;color:var(--teal);margin-top:18px;opacity:0;animation:riseUp .9s .8s forwards;min-height:22px}
-.htyping span{color:var(--accent);animation:blink 1s infinite}
-.hpills{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;opacity:0;animation:riseUp .9s .95s forwards}
-.pill{font-size:13px;font-weight:500;padding:7px 16px;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:var(--card);transition:all .25s}
-.pill:hover,.pill.on{border-color:var(--accent);color:var(--accent);background:rgba(196,181,253,.07)}
-.pill.gold{border-color:rgba(249,199,79,.4);color:var(--gold);background:rgba(249,199,79,.06)}
-.hbtns{display:flex;gap:14px;margin-top:40px;opacity:0;animation:riseUp .9s 1.1s forwards}
-.bpri{font-size:14px;font-weight:600;padding:14px 32px;background:var(--accent);color:#0a0a14;border:none;border-radius:6px;cursor:none;text-decoration:none;transition:all .25s;letter-spacing:.02em}
-.bpri:hover{background:#d8ccff;transform:translateY(-2px);box-shadow:0 12px 40px rgba(196,181,253,.28)}
-.bsec{font-size:14px;font-weight:500;padding:14px 32px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:6px;cursor:none;text-decoration:none;transition:all .25s}
-.bsec:hover{border-color:var(--accent);color:var(--accent)}
-.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fade 2s 2s infinite}
-.scroll-line{width:1px;height:50px;background:linear-gradient(var(--accent),transparent)}
-.scroll-lbl{font-size:11px;font-family:var(--mono);color:var(--dim);letter-spacing:.15em}
-
-/* ── SECTION HEADINGS ── */
-.sec-head{margin-bottom:60px}
-.sec-num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
-.sec-num::after{content:'';width:36px;height:1px;background:var(--accent)}
-h2.sec-title{font-family:var(--pf);font-size:clamp(36px,5vw,54px);font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--text)}
-h2.sec-title .dim{color:var(--dim)}
-
-/* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
-.about-text p{font-size:17px;color:var(--muted);line-height:1.85;margin-bottom:20px;font-weight:300}
-.about-text p strong{color:var(--text);font-weight:500}
-.about-text p .hi{color:var(--accent)}
-.iblock{margin-bottom:24px}
-.ilbl{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-.ival{font-size:15px;color:var(--text)}
-.ival a{color:var(--teal);text-decoration:none}
-.avail{display:flex;align-items:center;gap:12px;margin-top:28px;padding:15px 18px;border:1px solid rgba(196,181,253,.2);background:rgba(196,181,253,.04);border-radius:8px}
-.adot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:adot 2.5s infinite;flex-shrink:0}
-.atxt{font-size:14px;color:var(--accent);font-weight:500}
-
-/* ═══════════════════════════════
-   JOURNEY — enlarged, no emojis
-   ═══════════════════════════════ */
-.jintro{font-size:18px;color:var(--muted);line-height:1.85;max-width:640px;font-weight:300;margin-bottom:64px}
-.jintro strong{color:var(--text);font-weight:500}
-
-.jsem{display:grid;grid-template-columns:180px 1fr;gap:0 52px;margin-bottom:56px;position:relative}
-.jsem:not(:last-child)::before{content:'';position:absolute;left:179px;top:36px;bottom:-56px;width:1px;background:rgba(255,255,255,.07);z-index:0}
-/* Mini winter bridge entry */
-.jsem.bridge{margin-bottom:40px}
-.jsem.bridge:not(:last-child)::before{bottom:-40px}
-
-.jsem-meta{padding-top:2px;display:flex;flex-direction:column;align-items:flex-end}
-.jsem-dot{width:16px;height:16px;border:2px solid var(--accent);border-radius:50%;background:var(--raw);margin-bottom:14px;position:relative;z-index:1;transition:all .4s;flex-shrink:0}
-.jsem-dot.now{border-color:var(--rose);animation:nowglow 2.5s infinite}
-.jsem-dot.bridge-dot{width:10px;height:10px;border-color:rgba(196,181,253,.4)}
-.jsem:hover .jsem-dot:not(.now){background:var(--accent);box-shadow:0 0 18px rgba(196,181,253,.55)}
-.jsem-period{font-size:15px;color:var(--muted);text-align:right;line-height:1.7;font-weight:400}
-.jsem-period small{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;margin-top:4px}
-
-.jsem-body{}
-.jsem-label{font-family:var(--pf);font-size:28px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.1}
-.jsem-sub{font-size:15px;color:var(--accent);font-family:var(--mono);margin-bottom:22px;letter-spacing:.04em}
-.jsem-sub.rose{color:var(--rose)}
-
-/* Activity cards */
-.jacts{display:flex;flex-direction:column;gap:12px}
-.jact{border:1px solid var(--border);background:var(--card);border-radius:8px;padding:18px 22px;transition:all .3s}
-.jact:hover{border-color:var(--border-hi);background:var(--card2)}
-.jact.featured-act{border-color:rgba(249,168,212,.22)}
-.jact-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-
-/* Icon badge — no emojis, clean labels */
-.jbadge{width:32px;height:32px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:500;flex-shrink:0;letter-spacing:.02em}
-.jb-amb{background:rgba(249,199,79,.1);color:var(--gold);border:1px solid rgba(249,199,79,.25)}
-.jb-club{background:rgba(196,181,253,.1);color:var(--accent);border:1px solid rgba(196,181,253,.25)}
-.jb-ta{background:rgba(103,232,249,.1);color:var(--teal);border:1px solid rgba(103,232,249,.25)}
-.jb-acad{background:rgba(134,239,172,.1);color:#86efac;border:1px solid rgba(134,239,172,.2)}
-.jb-proctor{background:rgba(249,168,212,.1);color:var(--rose);border:1px solid rgba(249,168,212,.25)}
-.jb-proj{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25)}
-
-.jact-title{font-size:17px;font-weight:600;color:var(--text);line-height:1.3}
-.jact-role{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:3px;flex-shrink:0;margin-left:auto}
-.r-amb{background:rgba(249,199,79,.1);color:var(--gold);border:1px solid rgba(249,199,79,.25)}
-.r-club{background:rgba(196,181,253,.1);color:var(--accent);border:1px solid rgba(196,181,253,.25)}
-.r-ta{background:rgba(103,232,249,.1);color:var(--teal);border:1px solid rgba(103,232,249,.25)}
-.r-acad{background:rgba(134,239,172,.1);color:#86efac;border:1px solid rgba(134,239,172,.2)}
-.r-proctor{background:rgba(249,168,212,.1);color:var(--rose);border:1px solid rgba(249,168,212,.25)}
-.r-proj{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25)}
-.jact-desc{font-size:15px;color:var(--muted);line-height:1.7;padding-left:44px;font-weight:300}
-.jact-desc strong{color:var(--text);font-weight:500}
-.jact-stat{display:inline-flex;align-items:baseline;gap:5px;margin-top:10px;padding-left:44px}
-.jact-stat-n{font-family:var(--pf);font-size:26px;font-weight:700;color:var(--accent)}
-.jact-stat-l{font-size:13px;color:var(--dim)}
-
-/* Journey total strip */
-.jtotal{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:64px;background:var(--card)}
-.jts{padding:28px 20px;text-align:center;border-right:1px solid var(--border)}
-.jts:last-child{border-right:none}
-.jts-n{font-family:var(--pf);font-size:40px;font-weight:900;color:var(--accent);line-height:1}
-.jts-n sub{font-size:17px;color:var(--teal);font-family:var(--sans);vertical-align:baseline}
-.jts-l{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
-
-/* ── PROJECTS ── */
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.pcard{border:1px solid var(--border);background:var(--card);padding:30px;border-radius:8px;position:relative;overflow:hidden;transition:all .4s;transform-style:preserve-3d;cursor:none}
-.pcard::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(196,181,253,.07) 0%,transparent 65%);opacity:0;transition:opacity .3s}
-.pcard:hover::before{opacity:1}
-.pcard:hover{border-color:rgba(196,181,253,.22);transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.pcard.feat{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:40px;background:rgba(12,12,20,.96);border-color:rgba(196,181,253,.12)}
-.pn{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.15em;margin-bottom:14px}
-.ptag{display:inline-block;font-size:12px;font-weight:500;padding:4px 10px;border-radius:4px;margin-bottom:14px;letter-spacing:.04em}
-.tag-ml{background:rgba(196,181,253,.1);color:var(--accent);border:1px solid rgba(196,181,253,.2)}
-.tag-ai{background:rgba(103,232,249,.1);color:var(--teal);border:1px solid rgba(103,232,249,.2)}
-.tag-da{background:rgba(249,199,79,.1);color:var(--gold);border:1px solid rgba(249,199,79,.2)}
-.tag-db{background:rgba(249,168,212,.1);color:var(--rose);border:1px solid rgba(249,168,212,.2)}
-.tag-pm{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.2)}
-.tag-bi{background:rgba(134,239,172,.1);color:#86efac;border:1px solid rgba(134,239,172,.2)}
-.pname{font-family:var(--pf);font-size:21px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.25}
-.pdesc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:16px}
-.pmet{display:flex;align-items:baseline;gap:6px;margin-bottom:8px}
-.pmn{font-family:var(--pf);font-size:28px;font-weight:900;color:var(--accent)}
-.pml{font-size:12px;color:var(--dim)}
-.pstack{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}
-.stk{font-family:var(--mono);font-size:10px;padding:3px 8px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--dim);border-radius:3px}
-
-/* ── SKILLS ── */
-.skgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.skcat{margin-bottom:36px}
-.sktitle{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.sktitle::after{content:'';flex:1;height:1px;background:var(--border)}
-.skbar{margin-bottom:16px}
-.skbh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.skbn{font-size:15px;color:var(--muted);font-weight:400}
-.skbp{font-family:var(--mono);font-size:12px;color:var(--dim)}
-.skbt{height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
-.skbf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.4,0,.2,1)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{font-size:13px;font-weight:500;padding:6px 14px;background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:6px;transition:all .2s}
-.chip:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── CERTS ── */
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ccard{border:1px solid var(--border);background:var(--card);padding:26px;border-radius:8px;transition:all .3s;position:relative;overflow:hidden}
-.ccard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.ccard:hover{transform:translateY(-4px);border-color:var(--border-hi)}
-.ccard:hover::after{transform:scaleX(1)}
-.cprov{font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:10px}
-.cname{font-size:16px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:10px}
-.cst{font-size:13px;font-weight:500}
-.cst.pr{color:var(--gold)}
-.cgrow{margin-top:36px;padding:24px;border:1px solid var(--border);border-radius:8px;background:var(--card)}
-.cgrow-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px}
-.cgrow-list{display:flex;flex-wrap:wrap;gap:8px}
-.grow-item{font-size:13px;font-weight:500;padding:6px 14px;border-radius:6px;background:rgba(103,232,249,.07);color:var(--teal);border:1px solid rgba(103,232,249,.18)}
-
-/* ── CONTACT ── */
-.ctgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.ctl-text{font-size:17px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:36px}
-.ctl-text strong{color:var(--text);font-weight:500}
-.ctlinks{display:flex;flex-direction:column;gap:12px}
-.ctlnk{display:flex;align-items:center;gap:14px;padding:15px 18px;border:1px solid var(--border);background:var(--card);border-radius:8px;text-decoration:none;transition:all .22s}
-.ctlnk:hover{border-color:var(--border-hi);transform:translateX(6px)}
-.cticon{font-family:var(--mono);font-size:13px;color:var(--accent);width:22px;flex-shrink:0}
-.ctlt{font-size:14px;color:var(--text);font-weight:500}
-.ctls{font-size:12px;color:var(--dim);margin-top:2px}
-.fg{margin-bottom:18px}
-.fl{display:block;font-size:12px;font-weight:600;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.fi,.fta{width:100%;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:13px 15px;color:var(--text);font-family:var(--sans);font-size:15px;transition:border-color .2s;outline:none;resize:none}
-.fi:focus,.fta:focus{border-color:var(--accent)}
-.fta{min-height:110px}
-
-/* ── FOOTER ── */
-footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;background:rgba(4,4,9,.92)}
-.ftext{font-size:13px;color:var(--dim)}
-.ftext span{color:var(--accent)}
-
-/* ── ANIMATIONS ── */
-@keyframes riseUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fade{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-@keyframes adot{0%,100%{box-shadow:0 0 0 0 rgba(196,181,253,.5)}60%{box-shadow:0 0 0 8px rgba(196,181,253,0)}}
-@keyframes nowglow{0%,100%{box-shadow:0 0 0 0 rgba(249,168,212,0)}50%{box-shadow:0 0 16px 5px rgba(249,168,212,.38)}}
-.rev{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1)}
-.rev.vis{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-@media(max-width:860px){
-  nav{padding:15px 22px}.nlinks{display:none}
-  .wrap{padding:80px 22px}
-  #hero{padding:110px 22px 60px}
-  .about-grid,.skgrid,.ctgrid{grid-template-columns:1fr;gap:40px}
-  .pgrid{grid-template-columns:1fr}.pcard.feat{grid-column:span 1;grid-template-columns:1fr}
-  .cgrid{grid-template-columns:1fr 1fr}
-  .jsem{grid-template-columns:1fr;gap:10px}
-  .jsem-meta{flex-direction:row;align-items:center;gap:14px}
-  .jsem-period{text-align:left}
-  .jsem:not(:last-child)::before{display:none}
-  .jtotal{grid-template-columns:repeat(2,1fr)}
-  footer{flex-direction:column;gap:10px;padding:22px 24px;text-align:center}
-}
-</style>
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
@@ -264,7 +18,7 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nlogo">Dhanush <em>· Portfolio</em></div>
+  <div class="nlogo">Dhanush Munagala <em>· Portfolio</em></div>
   <ul class="nlinks">
     <li><a href="#about">About</a></li>
     <li><a href="#journey">Journey</a></li>
@@ -288,6 +42,7 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
       <span class="pill">Machine Learning</span>
       <span class="pill">Oracle SQL · Power BI</span>
       <span class="pill">Python · R · Java</span>
+      <span class="pill amber">Industry Consulting · GTM</span>
       <span class="pill">460+ Students Mentored</span>
     </div>
     <div class="hbtns">
@@ -305,13 +60,13 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
     <div class="about-grid">
       <div class="about-text rev d1">
         <p>I'm a data and AI professional completing my MS in Management Information Systems at the University of Houston's <span class="hi">C.T. Bauer College of Business</span>. My academic record tells part of the story — a perfect 4.0 GPA, every single semester.</p>
-        <p>I build things that bridge data and decisions — from <strong>clinical ML pipelines</strong> predicting disease progression, to <strong>computer vision systems</strong> with 92% accuracy, to <strong>full IT project management deliverables</strong> spanning every PMBOK knowledge area. I don't study frameworks. I apply them.</p>
-        <p>Before Houston, I was the <strong>Gold Medalist</strong> at JNTU Hyderabad — ranked #1 academically and for campus involvement across my graduating cohort. That discipline followed me here. At Bauer I've mentored over <span class="hi">460 students</span> across four TA roles, led the Entrepreneurship Club from VP to President, and I'm currently contributing to a real-world AI consulting engagement for a neuroscience-technology company entering the US market.</p>
+        <p>I build things that bridge data and decisions — from <strong>clinical ML pipelines</strong> predicting disease progression, to <strong>industry GTM strategy</strong> for an AI platform entering a $760B market, to <strong>full IT project management deliverables</strong> spanning every PMBOK knowledge area. I don't study frameworks. I apply them.</p>
+        <p>Before Houston, I was the <strong>Gold Medalist</strong> at JNTU Hyderabad — ranked #1 academically and for campus involvement across my graduating cohort. At Bauer I've mentored over <span class="hi">460 students</span> across four TA roles, led the Entrepreneurship Club from VP to President, and completed a real-world AI consulting engagement for a neuroscience-technology company entering the U.S. Refining &amp; Chemicals market.</p>
       </div>
       <div class="rev d2">
         <div class="iblock"><div class="ilbl">Based in</div><div class="ival">Houston, Texas</div></div>
         <div class="iblock"><div class="ilbl">Program</div><div class="ival">MS · Management Information Systems</div></div>
-        <div class="iblock"><div class="ilbl">Email</div><div class="ival"><a href="mailto:dhanushmunagala1612@gmail.com" style="color:var(--teal);text-decoration:none">dhanushmunagala1612@gmail.com</a></div></div>
+        <div class="iblock"><div class="ilbl">Email</div><div class="ival"><a href="mailto:dhanushmunagala1612@gmail.com">dhanushmunagala1612@gmail.com</a></div></div>
         <div class="iblock"><div class="ilbl">Phone</div><div class="ival">(713) 459-5743</div></div>
         <div class="iblock"><div class="ilbl">LinkedIn</div><div class="ival"><a href="https://linkedin.com/in/dhanushmunagala" target="_blank">linkedin.com/in/dhanushmunagala</a></div></div>
         <div class="avail"><div class="adot"></div><div class="atxt">Currently active · Spring 2026</div></div>
@@ -322,211 +77,141 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
 
 <!-- JOURNEY -->
 <section id="journey">
-  <div class="wrap">
+  <div class="wrap-wide">
     <div class="sec-head rev"><div class="sec-num">02 · Journey</div><h2 class="sec-title">My Bauer <span class="dim">Story</span></h2></div>
     <p class="jintro rev d1">Four semesters. One direction — forward. Every role, every course, every student mentored is part of a deliberate arc from arrival to impact.</p>
 
-    <!-- ── SEMESTER 1 ── -->
-    <div class="jsem rev d1">
-      <div class="jsem-meta">
-        <div class="jsem-dot"></div>
-        <div class="jsem-period">Fall 2024<small>Aug – Dec · Semester 1</small></div>
+    <div class="jmap">
+
+      <!-- ── FALL 2024 · LEFT ── -->
+      <div class="jstop jleft rev d1">
+        <div class="jcard">
+          <div class="jcard-period">Fall 2024 <small>Aug – Dec · Semester 1</small></div>
+          <div class="jsem-label">Arrival</div>
+          <div class="jsem-sub">Business Analytics, MS &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
+          <div class="jacts">
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-amb">AMB</div><span class="jact-title">Bauer Graduate Ambassador</span><span class="jact-role r-amb">Begins</span></div>
+              <div class="jact-desc">Selected as one of the inaugural Graduate Ambassadors — representing the college at university recruitment events, graduate program fairs, and information sessions. Established as a trusted voice for prospective international students navigating the Houston transition.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-club">EC</div><span class="jact-title">VP of Marketing — Entrepreneurship Club</span><span class="jact-role r-club">E-Club</span></div>
+              <div class="jact-desc">Joined as Vice President of Marketing in the first week. Architected outreach strategy across LinkedIn, email campaigns, and in-person tabling. Coordinated the club's first cross-college collaboration initiative.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-proctor">CAS</div><span class="jact-title">Exam Proctor — CASA Testing Center</span><span class="jact-role r-proctor">Proctor</span></div>
+              <div class="jact-desc">Certified proctor at the 120+ station testing facility. Managed biometric check-in, timed administration, and disciplinary reporting in compliance with UH academic policy.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-acad">BA</div><span class="jact-title">Coursework</span><span class="jact-role r-acad">Academic</span></div>
+              <div class="jact-desc">Quant Foundations for Business Analytics &nbsp;·&nbsp; Basic Programming for BA (R) &nbsp;·&nbsp; Database Mgmt Tools for BA</div>
+            </div>
+          </div>
+        </div>
+        <div class="jrocket-node">🚀</div>
       </div>
-      <div class="jsem-body">
-        <div class="jsem-label">Arrival</div>
-        <div class="jsem-sub">Business Analytics, MS &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
-        <div class="jacts">
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-amb">AMB</div>
-              <span class="jact-title">Bauer Graduate Ambassador</span>
-              <span class="jact-role r-amb">Begins</span>
+
+      <!-- ── SPRING 2025 · RIGHT ── -->
+      <div class="jstop jright rev d1">
+        <div class="jrocket-node">🚀</div>
+        <div class="jcard">
+          <div class="jcard-period">Spring 2025 <small>Jan – May · Semester 2</small></div>
+          <div class="jsem-label">Pivot</div>
+          <div class="jsem-sub">MIS, MS &nbsp;·&nbsp; Program Change &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
+          <div class="jacts">
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-amb">AMB</div><span class="jact-title">Bauer Graduate Ambassador — Continuing</span><span class="jact-role r-amb">Sem 2 of 3</span></div>
+              <div class="jact-desc">Represented Bauer at <strong>20+ events cumulative</strong>, including graduate open houses, career fairs, and external panels. Personally guided <strong>100+ students</strong> through career decisions and program selection.</div>
+              <div class="jact-stat"><span class="jact-stat-n">20+</span><span class="jact-stat-l">events represented across tenure</span></div>
             </div>
-            <div class="jact-desc">Selected as one of the inaugural Graduate Ambassadors for the C.T. Bauer College of Business — representing the college at university recruitment events, graduate program fairs, and information sessions from day one. Quickly established as a trusted voice for prospective international students navigating the Houston transition.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-club">EC</div>
-              <span class="jact-title">VP of Marketing — Entrepreneurship Club</span>
-              <span class="jact-role r-club">E-Club</span>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-club">EC</div><span class="jact-title">VP of Marketing — Entrepreneurship Club (Continuing)</span><span class="jact-role r-club">Sem 2 of 2</span></div>
+              <div class="jact-desc">Spearheaded multi-campus outreach campaigns, drove 100% membership retention, organized industry field visits, and secured speakers from Houston's energy and technology sectors.</div>
             </div>
-            <div class="jact-desc">Joined as Vice President of Marketing in the first week. Architected outreach strategy across LinkedIn, email campaigns, and in-person tabling — building the club's visibility across Bauer from the ground up. Coordinated with executive officers on organizing info sessions, speaker events, and the club's first cross-college collaboration initiative.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-proctor">CAS</div>
-              <span class="jact-title">Exam Proctor — CASA Testing Center</span>
-              <span class="jact-role r-proctor">Proctor</span>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-acad">MIS</div><span class="jact-title">Coursework</span><span class="jact-role r-acad">Academic</span></div>
+              <div class="jact-desc">Systems Analysis and Design &nbsp;·&nbsp; IT Management &amp; Control &nbsp;·&nbsp; IT Project Management</div>
             </div>
-            <div class="jact-desc">Served as a certified exam proctor at the <strong>Center for Academic Support and Assessment (CASA)</strong> — the university's centralized testing facility with 120+ proctored stations across three campus locations. Ensured academic integrity across high-enrollment exams, managing biometric check-in protocols, timed administration, and disciplinary reporting procedures in compliance with UH academic policy.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-acad">BA</div>
-              <span class="jact-title">Coursework</span>
-              <span class="jact-role r-acad">Academic</span>
-            </div>
-            <div class="jact-desc">Quant Foundations for Business Analytics &nbsp;·&nbsp; Basic Programming for BA (R) &nbsp;·&nbsp; Database Mgmt Tools for BA</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ── SEMESTER 2 ── -->
-    <div class="jsem rev d1">
-      <div class="jsem-meta">
-        <div class="jsem-dot"></div>
-        <div class="jsem-period">Spring 2025<small>Jan – May · Semester 2</small></div>
+      <!-- ── FALL 2025 · LEFT ── -->
+      <div class="jstop jleft rev d2">
+        <div class="jcard">
+          <div class="jcard-period">Fall 2025 <small>Aug – Dec · Semester 3</small></div>
+          <div class="jsem-label">Elevation</div>
+          <div class="jsem-sub">MIS, MS &nbsp;·&nbsp; Technical Depth &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
+          <div class="jacts">
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-amb">AMB</div><span class="jact-title">Bauer Graduate Ambassador — Final Semester</span><span class="jact-role r-amb">Sem 3 of 3</span></div>
+              <div class="jact-desc">Completed three consecutive semesters — among the longest-serving ambassadors in the MIS cohort. Mentored incoming international students, contributing directly to improved new-student retention.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-club">EC</div><span class="jact-title">President — Bauer Entrepreneurship Club</span><span class="jact-role r-club">Promoted</span></div>
+              <div class="jact-desc">Promoted from VP to President after two strong semesters. Led the executive team in transitioning programming to high-impact experiences — live case workshops, founder panels, and cross-club collaborations with Finance and Marketing clubs.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-ta">TA</div><span class="jact-title">Teaching Assistant — Database Management Systems</span><span class="jact-role r-ta">Oracle SQL</span></div>
+              <div class="jact-desc">First TA role at Bauer. Supported Oracle SQL instruction, relational schema design, normalization, and query optimization — guiding students through complex debugging and applied database projects.</div>
+            </div>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-acad">MIS</div><span class="jact-title">Coursework</span><span class="jact-role r-acad">Academic</span></div>
+              <div class="jact-desc">Transaction Processing Systems (JS/HTML/CSS) &nbsp;·&nbsp; Object Oriented Programming (Java) &nbsp;·&nbsp; Cloud Data Visualization (Power BI)</div>
+            </div>
+          </div>
+        </div>
+        <div class="jrocket-node">🚀</div>
       </div>
-      <div class="jsem-body">
-        <div class="jsem-label">Pivot</div>
-        <div class="jsem-sub">MIS, MS &nbsp;·&nbsp; Program Change &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
-        <div class="jacts">
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-amb">AMB</div>
-              <span class="jact-title">Bauer Graduate Ambassador — Continuing</span>
-              <span class="jact-role r-amb">Sem 2 of 3</span>
+
+      <!-- ── WINTER 2025-26 · RIGHT ── -->
+      <div class="jstop jright rev d2">
+        <div class="jrocket-node">🚀</div>
+        <div class="jcard">
+          <div class="jcard-period">Winter 2025–26 <small>Dec – Jan · Between Semesters</small></div>
+          <div class="jsem-label" style="font-size:22px">Winter Session</div>
+          <div class="jsem-sub">Intersession Teaching Role</div>
+          <div class="jacts">
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-ta">TA</div><span class="jact-title">Teaching Assistant — Global Environment of Business</span><span class="jact-role r-ta">INTB 3355</span></div>
+              <div class="jact-desc">Selected for an accelerated Winter Mini course under <strong>Dr. A. Olivia Miljanic</strong>. Managed grading for international news analyses, analytical papers, quiz performance, and McGraw-Hill Connect — serving as the primary student contact across a condensed four-week online format.</div>
             </div>
-            <div class="jact-desc">Deepened ambassador responsibilities — attended and represented Bauer at <strong>20+ events cumulative</strong>, including graduate open houses, career fairs, and external community engagement panels. Personally guided <strong>100+ students</strong> through career decisions, program selection, and the professional development landscape at Bauer.</div>
-            <div class="jact-stat"><span class="jact-stat-n">20+</span><span class="jact-stat-l">events represented across tenure</span></div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-club">EC</div>
-              <span class="jact-title">VP of Marketing — Entrepreneurship Club (Continuing)</span>
-              <span class="jact-role r-club">Sem 2 of 2</span>
-            </div>
-            <div class="jact-desc">Completed two semesters as VP of Marketing — spearheaded multi-campus outreach campaigns, drove 100% membership retention while simultaneously acquiring new members, organized industry field visits, and secured speakers from Houston's energy and technology sectors. Recognized as a key driver of the club's visible growth across Bauer.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-acad">MIS</div>
-              <span class="jact-title">Coursework</span>
-              <span class="jact-role r-acad">Academic</span>
-            </div>
-            <div class="jact-desc">Systems Analysis and Design &nbsp;·&nbsp; IT Management & Control &nbsp;·&nbsp; IT Project Management</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ── SEMESTER 3 ── -->
-    <div class="jsem rev d2">
-      <div class="jsem-meta">
-        <div class="jsem-dot"></div>
-        <div class="jsem-period">Fall 2025<small>Aug – Dec · Semester 3</small></div>
-      </div>
-      <div class="jsem-body">
-        <div class="jsem-label">Elevation</div>
-        <div class="jsem-sub">MIS, MS &nbsp;·&nbsp; Technical Depth &nbsp;·&nbsp; 9 Credits &nbsp;·&nbsp; GPA: 4.0</div>
-        <div class="jacts">
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-amb">AMB</div>
-              <span class="jact-title">Bauer Graduate Ambassador — Final Semester</span>
-              <span class="jact-role r-amb">Sem 3 of 3</span>
+      <!-- ── SPRING 2026 · LEFT · NOW ── -->
+      <div class="jstop jleft jnow rev d2">
+        <div class="jcard">
+          <div class="jcard-period">Spring 2026 <small>Jan – May · Semester 4 · Now</small></div>
+          <div class="jsem-label">Capstone</div>
+          <div class="jsem-sub rose">MIS, MS &nbsp;·&nbsp; Final Semester &nbsp;·&nbsp; Graduation: May 2026</div>
+          <div class="jacts">
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-ta">TA</div><span class="jact-title">Teaching Assistant — Logistics Management &amp; Project Management</span><span class="jact-role r-ta">270+ Students</span></div>
+              <div class="jact-desc">Overseeing <strong>270+ students</strong> across two courses under two professors — simultaneously spanning the MIS and Operations departments. Supporting supply chain analytics, project lifecycle management, and IT governance.</div>
+              <div class="jact-stat"><span class="jact-stat-n">270+</span><span class="jact-stat-l">students · 2 departments · active now</span></div>
             </div>
-            <div class="jact-desc">Completed three consecutive semesters as Graduate Ambassador — among the longest-serving ambassadors in the MIS cohort. Mentored incoming international students on navigating Houston's professional landscape and Bauer's academic environment, contributing directly to improved new-student retention and community cohesion.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-club">EC</div>
-              <span class="jact-title">President — Bauer Entrepreneurship Club</span>
-              <span class="jact-role r-club">Promoted</span>
+            <div class="jact featured-act">
+              <div class="jact-header"><div class="jbadge jb-proj">GT</div><span class="jact-title">Industry Consulting — Cognittiv AI Go-To-Market Strategy</span><span class="jact-role r-proj">Capstone</span></div>
+              <div class="jact-desc">Selected for a faculty-supervised consulting engagement with <strong>FD AI &amp; Tech Solutions / Cognittiv</strong> — an AI platform combining neuroscience and technology to assess daily cognitive readiness and prevent workplace accidents. Supervised by <strong>Greg Bean</strong>, Executive Director of the Bauer Gutierrez Energy Management Institute.<br><br>Delivered a full Go-To-Market strategy for the <strong>US Refining &amp; Chemicals</strong> market: TAM/SAM/SOM quantification, NCI-based segmentation, OSHA safety analysis, pricing architecture, channel strategy, and buyer mapping across a $760B industry.</div>
             </div>
-            <div class="jact-desc">Promoted from VP of Marketing to President after two strong semesters. Led the executive team in transitioning club programming from standard info sessions to interactive, high-impact experiences — live case workshops, entrepreneurship panels with Houston founders, and cross-club collaborations with the Finance and Marketing clubs. Built a culture where ideas move forward.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-ta">TA</div>
-              <span class="jact-title">Teaching Assistant — Database Management Systems</span>
-              <span class="jact-role r-ta">Oracle SQL</span>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-club">EC</div><span class="jact-title">President — Entrepreneurship Club (Continuing)</span><span class="jact-role r-club">Sem 2 as President</span></div>
+              <div class="jact-desc">Driving the club's most ambitious programming yet — alumni network expansion, industry partnerships, and cross-organizational collaborative events.</div>
             </div>
-            <div class="jact-desc">First TA role at Bauer. Supported Oracle SQL instruction, relational database design, schema modeling, and query optimization — guiding students through complex debugging, applied database projects, and assignment evaluation under close faculty collaboration.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-acad">MIS</div>
-              <span class="jact-title">Coursework</span>
-              <span class="jact-role r-acad">Academic</span>
+            <div class="jact">
+              <div class="jact-header"><div class="jbadge jb-acad">NOW</div><span class="jact-title">Current Focus</span><span class="jact-role r-acad">Learning</span></div>
+              <div class="jact-desc">Intro to Artificial Intelligence &nbsp;·&nbsp; AWS AI Practitioner (AIF-C01) — in prep &nbsp;·&nbsp; AWS Solutions Architect Associate — planned &nbsp;·&nbsp; PL-300 Power BI Data Analyst — in prep</div>
             </div>
-            <div class="jact-desc">Transaction Processing Systems (JS/HTML/CSS) &nbsp;·&nbsp; Object Oriented Programming (Java) &nbsp;·&nbsp; Cloud Data Visualization (Power BI)</div>
           </div>
         </div>
+        <div class="jrocket-node">🚀</div>
       </div>
-    </div>
 
-    <!-- ── WINTER SESSION ── -->
-    <div class="jsem bridge rev d2">
-      <div class="jsem-meta">
-        <div class="jsem-dot bridge-dot"></div>
-        <div class="jsem-period">Winter 2025–26<small>Dec – Jan · Between Semesters</small></div>
-      </div>
-      <div class="jsem-body">
-        <div class="jsem-label" style="font-size:22px">Winter Session</div>
-        <div class="jsem-sub">Intersession Teaching Role</div>
-        <div class="jacts">
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-ta">TA</div>
-              <span class="jact-title">Teaching Assistant — Global Environment of Business</span>
-              <span class="jact-role r-ta">INTB 3355</span>
-            </div>
-            <div class="jact-desc">Selected as TA for an accelerated Winter Mini course under <strong>Dr. A. Olivia Miljanic</strong>. Managed the majority of grading for the course — evaluating Friday News analyses, analytical papers, quiz performance, and McGraw-Hill Connect assignments — all in close consultation with the professor. Served as the primary student contact for course guidance, academic improvement, and virtual office hours across a condensed four-week online format.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </div><!-- /.jmap -->
 
-    <!-- ── SEMESTER 4 ── -->
-    <div class="jsem rev d2">
-      <div class="jsem-meta">
-        <div class="jsem-dot now"></div>
-        <div class="jsem-period">Spring 2026<small>Jan – May · Semester 4 · Now</small></div>
-      </div>
-      <div class="jsem-body">
-        <div class="jsem-label">Capstone</div>
-        <div class="jsem-sub rose">MIS, MS &nbsp;·&nbsp; Final Semester &nbsp;·&nbsp; Graduation: May 2026</div>
-        <div class="jacts">
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-ta">TA</div>
-              <span class="jact-title">Teaching Assistant — Logistics Management & Project Management</span>
-              <span class="jact-role r-ta">270+ Students</span>
-            </div>
-            <div class="jact-desc">Currently overseeing <strong>270+ students</strong> across two courses under two professors — simultaneously spanning the MIS and Operations departments. Supporting applied coursework in supply chain analytics, project lifecycle management, and IT governance. Managing grading pipelines, structured academic feedback, and student support across both sections.</div>
-            <div class="jact-stat"><span class="jact-stat-n">270+</span><span class="jact-stat-l">students · 2 departments · active now</span></div>
-          </div>
-          <div class="jact featured-act">
-            <div class="jact-header">
-              <div class="jbadge jb-proj">GT</div>
-              <span class="jact-title">Industry Consulting — Cognittiv AI Go-To-Market Strategy</span>
-              <span class="jact-role r-proj">Capstone</span>
-            </div>
-            <div class="jact-desc">Selected for a faculty-supervised student consulting engagement with <strong>FD AI & Tech Solutions / Cognittiv</strong> — an AI platform combining neuroscience and technology to assess daily cognitive readiness and prevent workplace accidents. Supervised by <strong>Greg Bean</strong>, Executive Director of the Bauer Gutierrez Energy Management Institute.<br><br>Developing a full Go-To-Market strategy for the <strong>US Refining & Chemicals</strong> market: product positioning, customer value proposition, competitive landscape analysis, TAM/SAM/SOM estimation, pricing architecture, and channel strategy. Final presentation: May 2026.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-club">EC</div>
-              <span class="jact-title">President — Entrepreneurship Club (Continuing)</span>
-              <span class="jact-role r-club">Sem 2 as President</span>
-            </div>
-            <div class="jact-desc">Continuing leadership into the final semester — driving the club's most ambitious programming yet, including alumni network expansion, industry partnerships, and cross-organizational collaborative events.</div>
-          </div>
-          <div class="jact">
-            <div class="jact-header">
-              <div class="jbadge jb-acad">NOW</div>
-              <span class="jact-title">Current Focus</span>
-              <span class="jact-role r-acad">Learning</span>
-            </div>
-            <div class="jact-desc">Intro to Artificial Intelligence &nbsp;·&nbsp; AWS AI Practitioner (AIF-C01) — in prep &nbsp;·&nbsp; AWS Solutions Architect Associate — planned &nbsp;·&nbsp; PL-300 Power BI Data Analyst — in prep</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- totals -->
+    <!-- Journey totals -->
     <div class="jtotal rev d3">
       <div class="jts"><div class="jts-n">460<sub>+</sub></div><div class="jts-l">Students Mentored</div></div>
       <div class="jts"><div class="jts-n">4</div><div class="jts-l">TA Roles Held</div></div>
@@ -541,11 +226,38 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
   <div class="wrap">
     <div class="sec-head rev"><div class="sec-num">03 · Projects</div><h2 class="sec-title">Selected <span class="dim">Work</span></h2></div>
     <div class="pgrid">
+
+      <!-- COGNITTIV GTM — FEATURED #01 -->
+      <div class="pcard feat-gtm rev" onclick="launchWarp('cognittiv')" style="cursor:none">
+        <div>
+          <div class="pn">01 / Featured · Industry Consulting</div>
+          <div class="ptag tag-gtm">GTM Strategy · Market Analytics · Energy · Spring 2026</div>
+          <div class="pname">Cognittiv AI — Go-To-Market Strategy</div>
+          <p class="pdesc">Full 11-component market entry strategy for an AI cognitive-readiness platform entering the U.S. Petroleum Refining &amp; Chemicals supply chain. Conducted TAM/SAM/SOM quantification, NCI-based refinery segmentation, OSHA safety trend analysis, pricing architecture, buyer mapping, and 3-phase land-and-expand GTM — for a real client in a $760B industry.</p>
+          <div class="pstack">
+            <span class="stk">Power BI</span><span class="stk">Excel</span><span class="stk">NCI Methodology</span>
+            <span class="stk">OSHA Public Data</span><span class="stk">TAM/SAM/SOM</span><span class="stk">IBIS World</span>
+            <span class="stk">Stakeholder Mapping</span><span class="stk">Pricing Architecture</span>
+          </div>
+          <div style="margin-top:18px;font-family:var(--mono);font-size:11px;color:rgba(245,158,11,.7);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
+            <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--amber);animation:adot 2s infinite;flex-shrink:0"></span>
+            INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:20px">
+          <div class="pmet"><div class="pmn amber">$760B</div><div class="pml">U.S. Petroleum Refining market analyzed</div></div>
+          <div class="pmet"><div class="pmn amber">132</div><div class="pml">U.S. refineries mapped · TAM</div></div>
+          <div class="pmet"><div class="pmn amber">11</div><div class="pml">GTM strategy components delivered</div></div>
+          <div class="pmet"><div class="pmn amber">4</div><div class="pml">Beachhead refinery sites targeted · SOM</div></div>
+        </div>
+      </div>
+
+      <!-- DIABETES ML — FEATURED #02 -->
       <div class="pcard feat rev" onclick="launchWarp('diabetes')" style="cursor:none;border-color:rgba(196,181,253,.22)">
         <div>
-          <div class="pn">01 / Featured</div><div class="ptag tag-ml">Machine Learning · Healthcare · Team Project</div>
-          <div class="pname">Diabetes Progression & Comorbidity Prediction</div>
-          <p class="pdesc">A 5-person clinical ML research project applying logistic regression, PCA, and decision trees to real patient data — predicting diabetes progression and mapping cross-disease risk for cardiovascular (CAD) and kidney (eGFR) outcomes. Presented as the capstone for Quantitative Foundations for Business Analytics.</p>
+          <div class="pn">02 / Featured</div><div class="ptag tag-ml">Machine Learning · Healthcare · Team Project</div>
+          <div class="pname">Diabetes Progression &amp; Comorbidity Prediction</div>
+          <p class="pdesc">A 5-person clinical ML research project applying logistic regression, PCA, and decision trees to real patient data — predicting diabetes progression and mapping cross-disease risk for cardiovascular (CAD) and kidney (eGFR) outcomes.</p>
           <div class="pstack"><span class="stk">JMP Pro</span><span class="stk">PCA</span><span class="stk">Logistic Regression</span><span class="stk">Decision Trees</span><span class="stk">ROC / AUC</span><span class="stk">Clinical Analytics</span></div>
           <div style="margin-top:18px;font-family:var(--mono);font-size:11px;color:rgba(196,181,253,.65);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
             <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:adot 2s infinite;flex-shrink:0"></span>
@@ -558,8 +270,10 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           <div class="pmet"><div class="pmn">0.71</div><div class="pml">AUC · Kidney Disease (eGFR)</div></div>
         </div>
       </div>
+
+      <!-- Face Recognition #03 -->
       <div class="pcard rev d1" onclick="launchWarp('facerec')" style="cursor:none;border-color:rgba(103,232,249,.18)">
-        <div class="pn">02</div><div class="ptag tag-ai">AI · Computer Vision · Python</div>
+        <div class="pn">03</div><div class="ptag tag-ai">AI · Computer Vision · Python</div>
         <div class="pname">Facial Recognition Attendance System</div>
         <p class="pdesc">Led a 5-person team to build a deep learning system using Python, OpenCV, and KNN classifiers. Raspberry Pi embedded deployment. MySQL for real-time records. 85% reduction in manual effort at 92% accuracy.</p>
         <div class="pmet"><div class="pmn">92%</div><div class="pml">Face Recognition Accuracy</div></div>
@@ -569,8 +283,10 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
+      <!-- Olympics #04 -->
       <div class="pcard rev d2" onclick="launchWarp('olympics')" style="cursor:none;border-color:rgba(249,199,79,.18)">
-        <div class="pn">03</div><div class="ptag tag-da">Sports Analytics · R</div>
+        <div class="pn">04</div><div class="ptag tag-da">Sports Analytics · R</div>
         <div class="pname">Team USA Olympic Performance Analytics</div>
         <p class="pdesc">Processed 271,000+ Olympic records in R to surface medal trends, gender patterns, and competitive benchmarks across 15+ nations. Built a forecasting framework for strategic insights.</p>
         <div class="pmet"><div class="pmn">271K+</div><div class="pml">Records Analyzed</div></div>
@@ -580,8 +296,10 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
+      <!-- Pixar BI #05 -->
       <div class="pcard rev d1" onclick="launchWarp('pixar')" style="cursor:none;border-color:rgba(56,189,248,.2)">
-        <div class="pn">04</div><div class="ptag tag-bi">Business Intelligence · Power BI</div>
+        <div class="pn">05</div><div class="ptag tag-bi">Business Intelligence · Power BI</div>
         <div class="pname">Pixar Financial Intelligence Platform</div>
         <p class="pdesc">Two-dashboard Power BI system with star-schema data model, advanced DAX time-intelligence, custom KPIs, and era-based storytelling across 30 years of Pixar's financial and creative history.</p>
         <div class="pmet"><div class="pmn">$17B</div><div class="pml">Total Box Office Analyzed</div></div>
@@ -591,8 +309,10 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
+      <!-- RDBMS #06 -->
       <div class="pcard rev d2" onclick="launchWarp('dbms')" style="cursor:none;border-color:rgba(249,168,212,.18)">
-        <div class="pn">05</div><div class="ptag tag-db">Database Engineering · Oracle SQL</div>
+        <div class="pn">06</div><div class="ptag tag-db">Database Engineering · Oracle SQL</div>
         <div class="pname">Scalable RDBMS — Multi-Entity Operations</div>
         <p class="pdesc">Designed a full RDBMS following 1NF→3NF normalization with FK constraints, indexing, and referential integrity. Complex joins, window functions, and optimized query execution plans.</p>
         <div class="pstack"><span class="stk">Oracle SQL</span><span class="stk">3NF Normalization</span><span class="stk">Query Optimization</span></div>
@@ -601,10 +321,12 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
+      <!-- Project Elevate #07 -->
       <div class="pcard rev d3" id="elevate-card" onclick="launchWarp()" style="cursor:none;border-color:rgba(251,146,60,.22)">
-        <div class="pn">06</div><div class="ptag tag-pm">IT Project Management · EVM</div>
+        <div class="pn">07</div><div class="ptag tag-pm">IT Project Management · EVM</div>
         <div class="pname">Project Elevate — Full PM Lifecycle</div>
-        <p class="pdesc">PMBOK-aligned deliverable: EVM analysis (CPI 0.71, EAC $352K overrun identified), 9-risk register, RACI chart, WBS Level 4, stakeholder power/interest grid, and dual schedule compression analysis. 235% projected ROI.</p>
+        <p class="pdesc">PMBOK-aligned deliverable: EVM analysis (CPI 0.71, EAC $352K overrun identified), 9-risk register, RACI chart, WBS Level 4, stakeholder power/interest grid, and dual schedule compression analysis.</p>
         <div class="pmet"><div class="pmn">235%</div><div class="pml">Projected ROI</div></div>
         <div class="pstack"><span class="stk">PMBOK</span><span class="stk">EVM</span><span class="stk">Risk Mgmt</span><span class="stk">Smartsheet</span></div>
         <div style="margin-top:18px;font-family:var(--mono);font-size:11px;color:rgba(251,146,60,.65);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
@@ -612,16 +334,19 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
+      <!-- V Care #08 -->
       <div class="pcard rev d1" onclick="launchWarp('vcare')" style="cursor:none;border-color:rgba(134,239,172,.18)">
-        <div class="pn">07</div><div class="ptag" style="background:rgba(134,239,172,.1);color:#86efac;border:1px solid rgba(134,239,172,.2);font-size:12px;font-weight:500;padding:4px 10px;border-radius:4px;margin-bottom:14px;display:inline-block">Web Application · JavaScript</div>
+        <div class="pn">08</div><div class="ptag tag-bi" style="background:rgba(134,239,172,.1);color:#86efac;border:1px solid rgba(134,239,172,.2)">Web Application · JavaScript</div>
         <div class="pname">V Care Medicals — Patient Registration Portal</div>
-        <p class="pdesc">Fully functional healthcare patient-intake web application built in HTML5, CSS3, and JavaScript — featuring cookie-based returning-user sessions, Fetch API dynamic loading, localStorage persistence, live validation, and iFrame embedding.</p>
+        <p class="pdesc">Fully functional healthcare patient-intake web application — cookie-based sessions, Fetch API dynamic loading, localStorage persistence, live regex validation, and iFrame embedding.</p>
         <div class="pstack"><span class="stk">JavaScript</span><span class="stk">HTML5/CSS3</span><span class="stk">Fetch API</span><span class="stk">Cookies</span><span class="stk">localStorage</span><span class="stk">RegEx Validation</span></div>
         <div style="margin-top:18px;font-family:var(--mono);font-size:11px;color:rgba(134,239,172,.65);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
           <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#86efac;animation:adot 2s infinite;flex-shrink:0"></span>
           INTERACTIVE &nbsp;·&nbsp; CLICK TO ENTER
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -633,16 +358,17 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
     <div class="skgrid">
       <div class="rev d1">
         <div class="skcat">
-          <div class="sktitle">Data & Analytics</div>
+          <div class="sktitle">Data &amp; Analytics</div>
           <div class="skbar"><div class="skbh"><span class="skbn">Oracle SQL / RDBMS</span><span class="skbp">90%</span></div><div class="skbt"><div class="skbf" data-w=".90"></div></div></div>
           <div class="skbar"><div class="skbh"><span class="skbn">Power BI + DAX</span><span class="skbp">78%</span></div><div class="skbt"><div class="skbf" data-w=".78"></div></div></div>
           <div class="skbar"><div class="skbh"><span class="skbn">Statistical Modeling</span><span class="skbp">75%</span></div><div class="skbt"><div class="skbf" data-w=".75"></div></div></div>
           <div class="skbar"><div class="skbh"><span class="skbn">R — dplyr, ggplot2</span><span class="skbp">70%</span></div><div class="skbt"><div class="skbf" data-w=".70"></div></div></div>
+          <div class="skbar"><div class="skbh"><span class="skbn">Excel — Advanced Analytics</span><span class="skbp">82%</span></div><div class="skbt"><div class="skbf" data-w=".82"></div></div></div>
         </div>
         <div class="skcat">
-          <div class="sktitle">Machine Learning & AI</div>
-          <div class="skbar"><div class="skbh"><span class="skbn">Predictive Modeling</span><span class="skbp">72%</span></div><div class="skbt"><div class="skbf" data-w=".72"></div></div></div>
-          <div class="skbar"><div class="skbh"><span class="skbn">Python — pandas, OpenCV</span><span class="skbp">68%</span></div><div class="skbt"><div class="skbf" data-w=".68"></div></div></div>
+          <div class="sktitle">Machine Learning &amp; AI</div>
+          <div class="skbar"><div class="skbh"><span class="skbn">Predictive Modeling (PCA, LR, DT)</span><span class="skbp">72%</span></div><div class="skbt"><div class="skbf" data-w=".72"></div></div></div>
+          <div class="skbar"><div class="skbh"><span class="skbn">Python — pandas, NumPy, OpenCV</span><span class="skbp">68%</span></div><div class="skbt"><div class="skbf" data-w=".68"></div></div></div>
           <div class="skbar"><div class="skbh"><span class="skbn">Computer Vision / Deep Learning</span><span class="skbp">55%</span></div><div class="skbt"><div class="skbf" data-w=".55"></div></div></div>
           <div class="skbar"><div class="skbh"><span class="skbn">AWS Cloud — growing</span><span class="skbp">30%</span></div><div class="skbt"><div class="skbf" data-w=".30" style="background:linear-gradient(90deg,var(--gold),#f59e0b)"></div></div></div>
         </div>
@@ -655,17 +381,85 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
           <div class="skbar"><div class="skbh"><span class="skbn">MySQL / MS Access</span><span class="skbp">75%</span></div><div class="skbt"><div class="skbf" data-w=".75"></div></div></div>
         </div>
         <div class="skcat">
-          <div class="sktitle">Tools & Platforms</div>
+          <div class="sktitle">Tools &amp; Platforms</div>
           <div class="chips">
             <span class="chip">Tableau</span><span class="chip">JMP Pro</span><span class="chip">Smartsheet</span>
             <span class="chip">MS Office Suite</span><span class="chip">VS Code</span><span class="chip">GitHub</span>
             <span class="chip">Agile / Scrum</span><span class="chip">PMBOK</span>
             <span class="chip">EVM Analysis</span><span class="chip">Stakeholder Mgmt</span>
             <span class="chip">Microsoft Teams</span><span class="chip">RACI / WBS</span>
+            <span class="chip">Prompt Engineering</span>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Business & Strategy Skills Row -->
+    <div class="sk-biz-row rev d2">
+      <div class="sk-biz-title">Business &amp; Strategy Skills</div>
+      <div class="sk-biz-grid">
+        <div class="sk-biz-card">
+          <div class="sk-biz-card-title">Market Analytics</div>
+          <div class="sk-biz-tags">
+            <span class="biz-tag">TAM / SAM / SOM</span>
+            <span class="biz-tag">Market Sizing</span>
+            <span class="biz-tag">Competitive Analysis</span>
+            <span class="biz-tag">Industry Research</span>
+            <span class="biz-tag">IBIS World</span>
+          </div>
+        </div>
+        <div class="sk-biz-card">
+          <div class="sk-biz-card-title">GTM Strategy</div>
+          <div class="sk-biz-tags">
+            <span class="biz-tag">Go-To-Market Planning</span>
+            <span class="biz-tag">Pricing Architecture</span>
+            <span class="biz-tag">Land-and-Expand</span>
+            <span class="biz-tag">Channel Strategy</span>
+            <span class="biz-tag">B2B Sales Framework</span>
+          </div>
+        </div>
+        <div class="sk-biz-card">
+          <div class="sk-biz-card-title">Analytics &amp; Compliance</div>
+          <div class="sk-biz-tags">
+            <span class="biz-tag">OSHA Data Analysis</span>
+            <span class="biz-tag">NCI Methodology</span>
+            <span class="biz-tag">Safety Analytics</span>
+            <span class="biz-tag">Stakeholder Mapping</span>
+            <span class="biz-tag">Regulatory Alignment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leadership Section -->
+      <div class="sk-lead-title">Leadership &amp; Impact</div>
+      <div class="sk-lead-grid">
+        <div class="sk-lead-card">
+          <div class="sk-lead-icon">🎯</div>
+          <div class="sk-lead-role">Club President</div>
+          <div class="sk-lead-org">Bauer Entrepreneurship Club</div>
+          <div class="sk-lead-stat">Promoted from VP · <strong>2 semesters</strong> as President</div>
+        </div>
+        <div class="sk-lead-card">
+          <div class="sk-lead-icon">🎓</div>
+          <div class="sk-lead-role">Teaching Assistant</div>
+          <div class="sk-lead-org">UH Bauer College · 4 Roles</div>
+          <div class="sk-lead-stat"><strong>460+</strong> students mentored across 4 courses</div>
+        </div>
+        <div class="sk-lead-card">
+          <div class="sk-lead-icon">🌐</div>
+          <div class="sk-lead-role">Graduate Ambassador</div>
+          <div class="sk-lead-org">UH Bauer Graduate Programs</div>
+          <div class="sk-lead-stat"><strong>20+</strong> events · <strong>100+</strong> students guided</div>
+        </div>
+        <div class="sk-lead-card">
+          <div class="sk-lead-icon">⚡</div>
+          <div class="sk-lead-role">Industry Consultant</div>
+          <div class="sk-lead-org">Cognittiv AI · Gutierrez EMI</div>
+          <div class="sk-lead-stat">Faculty-supervised · <strong>$760B</strong> industry</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -780,258 +574,9 @@ footer{border-top:1px solid var(--border);padding:28px 64px;display:flex;justify
   <div class="ftext">Built with <span>intention</span></div>
 </footer>
 
-<script>
-/* ═══════════════════════════════════════
-   GRAVITATIONAL LENSING — scrolls with page
-   ═══════════════════════════════════════ */
-const GRAV=(function(){
-  const C=document.getElementById('grav-canvas');
-  const X=C.getContext('2d');
-  let W,H,t=0,scrollY2=0;
 
-  /* Black hole — drifts + responds to scroll */
-  const BH={x:0,y:0,r:0,tx:0,ty:0};
+<script src="script.js"></script>
 
-  function resize(){
-    W=C.width=innerWidth; H=C.height=innerHeight;
-    BH.r=Math.min(W,H)*.085;
-    BH.tx=W*.7; BH.ty=H*.42;
-    BH.x=BH.tx; BH.y=BH.ty;
-  }
-  resize(); addEventListener('resize',resize);
-  addEventListener('scroll',()=>{scrollY2=window.scrollY});
-
-  const STARS=Array.from({length:360},()=>({
-    ox:Math.random()*2560,oy:Math.random()*1440,
-    r:Math.random()*1.0+.15,
-    ba:Math.random()*.55+.06,
-    t:Math.random()*Math.PI*2,
-    dt:Math.random()*.0018+.0008
-  }));
-
-  const DISK=Array.from({length:1100},()=>{
-    const ang=Math.random()*Math.PI*2;
-    const rad=BH.r*(1.25+Math.random()*2.4);
-    const sp=.0014+Math.random()*.0008;
-    const dop=Math.cos(ang)>.15?.92:.38+Math.random()*.32;
-    return{ang,rad,sp,dop,r:Math.random()*1.8+.28,life:Math.random(),dec:.002+Math.random()*.005};
-  });
-
-  function lerp(a,b,f){return a+(b-a)*f}
-
-  function draw(){
-    t+=.01;
-    X.clearRect(0,0,W,H);
-
-    /* BH target drifts based on time + scroll */
-    const scrollFrac=Math.min(1,scrollY2/(document.documentElement.scrollHeight-H||1));
-    /* Drift in a slow orbit and shift left as user scrolls down */
-    const driftX=Math.sin(t*.007)*W*.09;
-    const driftY=Math.cos(t*.005)*H*.055;
-    BH.tx=W*(.68+driftX/W) - scrollFrac*W*.28;
-    BH.ty=H*(.41+driftY/H);
-    /* Smooth follow */
-    BH.x=lerp(BH.x,BH.tx,.018);
-    BH.y=lerp(BH.y,BH.ty,.018);
-
-    /* Dark background */
-    const bg=X.createRadialGradient(BH.x,BH.y,0,BH.x,BH.y,Math.max(W,H)*.75);
-    bg.addColorStop(0,'rgba(2,1,8,1)');
-    bg.addColorStop(.3,'rgba(5,4,16,1)');
-    bg.addColorStop(.7,'rgba(4,3,12,1)');
-    bg.addColorStop(1,'rgba(3,3,10,1)');
-    X.fillStyle=bg; X.fillRect(0,0,W,H);
-
-    /* Nebula wisps */
-    const nebColors=['rgba(38,18,76,','rgba(10,28,58,','rgba(48,14,68,','rgba(14,38,68,'];
-    for(let i=0;i<4;i++){
-      const nx=BH.x+Math.cos(t*.036+i*1.57)*W*.28+W*.08*(i%2-.5);
-      const ny=BH.y+Math.sin(t*.028+i*1.2)*H*.2;
-      const ng=X.createRadialGradient(nx,ny,0,nx,ny,W*.26);
-      ng.addColorStop(0,nebColors[i]+'.055)');
-      ng.addColorStop(1,nebColors[i]+'0)');
-      X.fillStyle=ng; X.fillRect(0,0,W,H);
-    }
-
-    /* Lensed stars */
-    for(const s of STARS){
-      s.t+=s.dt;
-      const sx=s.ox%(W||1920), sy=s.oy%(H||1080);
-      const dx=sx-BH.x, dy=sy-BH.y;
-      const dist=Math.sqrt(dx*dx+dy*dy);
-      const minD=BH.r*2.2;
-      let lx=sx,ly=sy;
-      if(dist>minD){
-        const str=BH.r*BH.r*1.4/(dist*dist);
-        lx=sx-dx*str; ly=sy-dy*str;
-        if(dist<BH.r*5){
-          const arc=Math.min(1,(BH.r*5-dist)/(BH.r*3.5));
-          const perp=Math.atan2(dy,dx)+Math.PI*.5;
-          const stretch=(1+arc*2.8)*Math.max(.4,s.r);
-          X.save();
-          X.translate(lx,ly); X.rotate(perp); X.scale(stretch,1);
-          X.beginPath(); X.arc(0,0,s.r,0,Math.PI*2);
-          X.fillStyle=`rgba(210,200,255,${s.ba*(1-arc*.6)*Math.abs(Math.sin(s.t))})`;
-          X.fill(); X.restore(); continue;
-        }
-      }
-      const a=s.ba*(.72+.28*Math.abs(Math.sin(s.t)));
-      X.beginPath(); X.arc(lx,ly,s.r,0,Math.PI*2);
-      X.fillStyle=`rgba(220,215,255,${a})`; X.fill();
-    }
-
-    /* Outer accretion glow */
-    const og=X.createRadialGradient(BH.x,BH.y,BH.r*1.1,BH.x,BH.y,BH.r*4.5);
-    og.addColorStop(0,'rgba(255,140,40,.11)');
-    og.addColorStop(.4,'rgba(220,80,20,.055)');
-    og.addColorStop(1,'rgba(100,40,10,0)');
-    X.fillStyle=og; X.fillRect(0,0,W,H);
-
-    /* Disk particles */
-    for(const p of DISK){
-      p.ang+=p.sp*(BH.r*1.4/p.rad);
-      p.life-=p.dec;
-      if(p.life<=0){p.ang=Math.random()*Math.PI*2;p.rad=BH.r*(1.25+Math.random()*2.4);p.life=1;p.dec=.002+Math.random()*.005;}
-      const px=BH.x+Math.cos(p.ang)*p.rad;
-      const py=BH.y+Math.sin(p.ang)*p.rad*.26;
-      const behind=py>BH.y+BH.r*.1;
-      const a=p.life*.72*p.dop*(behind?.2:.92);
-      const temp=p.rad/BH.r;
-      const cr=Math.min(255,Math.round(lerp(255,215,Math.min(1,(temp-1.25)/1.6))));
-      const cg=Math.round(lerp(235,75,Math.min(1,(temp-1.25)/2.1)));
-      const cb=Math.round(lerp(170,18,Math.min(1,(temp-1.25)/2.1)));
-      if(p.r>1.1){
-        const g2=X.createRadialGradient(px,py,0,px,py,p.r*2.4);
-        g2.addColorStop(0,`rgba(${cr},${cg},${cb},${a})`);
-        g2.addColorStop(1,`rgba(${cr},${cg},${cb},0)`);
-        X.fillStyle=g2; X.beginPath(); X.arc(px,py,p.r*2.4,0,Math.PI*2); X.fill();
-      }
-      X.beginPath(); X.arc(px,py,p.r,0,Math.PI*2);
-      X.fillStyle=`rgba(${cr},${cg},${cb},${Math.min(1,a*1.3)})`; X.fill();
-    }
-
-    /* Photon ring */
-    X.save();
-    X.beginPath(); X.ellipse(BH.x,BH.y,BH.r*1.44,BH.r*.35,0,0,Math.PI*2);
-    X.strokeStyle='rgba(255,215,130,.16)'; X.lineWidth=1.4; X.stroke();
-    X.beginPath(); X.ellipse(BH.x,BH.y,BH.r*1.5,BH.r*.37,0,0,Math.PI*2);
-    X.strokeStyle='rgba(255,200,90,.08)'; X.lineWidth=2.8; X.stroke();
-    X.restore();
-
-    /* Event horizon */
-    const bhg=X.createRadialGradient(BH.x,BH.y,0,BH.x,BH.y,BH.r*1.04);
-    bhg.addColorStop(0,'rgba(0,0,0,1)');
-    bhg.addColorStop(.72,'rgba(0,0,0,1)');
-    bhg.addColorStop(.9,'rgba(2,0,5,.98)');
-    bhg.addColorStop(1,'rgba(5,2,10,.9)');
-    X.beginPath(); X.arc(BH.x,BH.y,BH.r*1.04,0,Math.PI*2); X.fillStyle=bhg; X.fill();
-
-    /* Inner photon glow */
-    const ig=X.createRadialGradient(BH.x,BH.y,BH.r*.88,BH.x,BH.y,BH.r*1.22);
-    ig.addColorStop(0,'rgba(255,200,100,0)');
-    ig.addColorStop(.5,'rgba(255,175,55,.12)');
-    ig.addColorStop(1,'rgba(255,135,35,0)');
-    X.fillStyle=ig; X.beginPath(); X.arc(BH.x,BH.y,BH.r*1.22,0,Math.PI*2); X.fill();
-
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-/* ═══════════════════════════
-   COMET CURSOR TRAIL
-   ═══════════════════════════ */
-(function(){
-  const C=document.getElementById('comet-canvas');
-  const X=C.getContext('2d');
-  const DOT=document.getElementById('cdot');
-  let W,H,mx=0,my=0,lx=0,ly=0;
-  const rsz=()=>{C.width=W=innerWidth; C.height=H=innerHeight};
-  rsz(); addEventListener('resize',rsz);
-  addEventListener('mousemove',e=>{mx=e.clientX; my=e.clientY; DOT.style.left=mx+'px'; DOT.style.top=my+'px'});
-  document.querySelectorAll('a,button,.pcard,.ccard,.jact,.ctlnk').forEach(el=>{
-    el.addEventListener('mouseenter',()=>DOT.classList.add('hover'));
-    el.addEventListener('mouseleave',()=>DOT.classList.remove('hover'));
-  });
-  const COLS=['rgba(196,181,253,','rgba(103,232,249,','rgba(249,168,212,','rgba(249,199,79,','rgba(255,255,255,'];
-  const TR=[];
-  function spawn(x,y){
-    const n=Math.random()<.35?3:2;
-    for(let i=0;i<n;i++){
-      const c=COLS[Math.floor(Math.random()*COLS.length)];
-      const a2=Math.random()*Math.PI*2, sp=Math.random()*1.8+.3;
-      const big=Math.random()<.07;
-      TR.push({x,y,vx:Math.cos(a2)*sp*(Math.random()-.38)*.7,vy:Math.sin(a2)*sp*.45-.75,
-        r:big?4+Math.random()*2.5:.5+Math.random()*1.5,
-        life:1,decay:big?.014:.028+Math.random()*.022,c,
-        glow:big||Math.random()<.18,ring:!big&&Math.random()<.1});
-    }
-  }
-  function frame(){
-    X.clearRect(0,0,W,H);
-    if((mx-lx)**2+(my-ly)**2>4){spawn(mx,my); lx=mx; ly=my}
-    for(let i=TR.length-1;i>=0;i--){
-      const p=TR[i];
-      p.x+=p.vx; p.y+=p.vy; p.vy+=.026; p.vx*=.978; p.life-=p.decay;
-      if(p.life<=0){TR.splice(i,1); continue}
-      const a=p.life*.88;
-      if(p.ring){
-        X.beginPath(); X.arc(p.x,p.y,p.r*(3-p.life*1.8),0,Math.PI*2);
-        X.strokeStyle=p.c+a*.38+')'; X.lineWidth=.6; X.stroke();
-      } else {
-        if(p.glow){
-          const g=X.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.5);
-          g.addColorStop(0,p.c+a*.5+')'); g.addColorStop(1,p.c+'0)');
-          X.beginPath(); X.arc(p.x,p.y,p.r*3.5,0,Math.PI*2); X.fillStyle=g; X.fill();
-        }
-        X.beginPath(); X.arc(p.x,p.y,p.r,0,Math.PI*2);
-        X.fillStyle=p.c+a+')'; X.fill();
-      }
-    }
-    if(mx>0){
-      const g=X.createRadialGradient(mx,my,0,mx,my,65);
-      g.addColorStop(0,'rgba(196,181,253,.055)'); g.addColorStop(1,'rgba(196,181,253,0)');
-      X.beginPath(); X.arc(mx,my,65,0,Math.PI*2); X.fillStyle=g; X.fill();
-    }
-    requestAnimationFrame(frame);
-  }
-  frame();
-})();
-
-/* ═══ NAV ═══ */
-addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40));
-
-/* ═══ TYPING ═══ */
-const PH=['MS in Management Information Systems','Data & AI Practitioner','ML Model Builder','Business Intelligence Developer','Consulting Project Lead','Club President & Mentor'];
-let pi=0,ci=0,del=false;
-function type(){
-  const el=document.getElementById('tt'); if(!el)return;
-  const w=PH[pi];
-  if(!del){el.textContent=w.slice(0,++ci); if(ci===w.length){del=true; setTimeout(type,2200);return;}}
-  else{el.textContent=w.slice(0,--ci); if(ci===0){del=false; pi=(pi+1)%PH.length;}}
-  setTimeout(type,del?36:76);
-}
-setTimeout(type,1200);
-
-/* ═══ REVEAL ═══ */
-const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.05});
-document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
-
-/* ═══ SKILL BARS ═══ */
-const sobs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skbf').forEach(f=>f.style.transform=`scaleX(${f.dataset.w})`)})},{threshold:.15});
-document.querySelectorAll('#skills').forEach(el=>sobs.observe(el));
-
-/* ═══ 3D CARD TILT ═══ */
-document.querySelectorAll('.pcard').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect();
-    c.style.transform=`perspective(900px) rotateX(${-(e.clientY-r.top-r.height/2)/r.height*7}deg) rotateY(${(e.clientX-r.left-r.width/2)/r.width*7}deg) translateY(-5px)`;
-    c.style.setProperty('--px',(e.clientX-r.left)/r.width*100+'%');
-    c.style.setProperty('--py',(e.clientY-r.top)/r.height*100+'%');
-  });
-  c.addEventListener('mouseleave',()=>c.style.transform='');
-});
-</script>
 <!-- ═══════════════════════════════
      WARP CANVAS (full screen overlay)
      ═══════════════════════════════ -->
@@ -1379,7 +924,8 @@ function launchWarp(target){
       'pixar': 'pixar-page',
       'vcare': 'vcare-page',
       'diabetes': 'diabetes-page',
-      'facerec': 'facerec-page'
+      'facerec': 'facerec-page',
+      'cognittiv': 'cognittiv-page'
     };
     const pageId = pageMap[target] || 'elevate-page';
     const ep=document.getElementById(pageId);
@@ -1403,8 +949,12 @@ function launchWarp(target){
   },1600);
 }
 
+function closePage(id){
+  const ep=document.getElementById(id);
+  if(ep){ep.style.pointerEvents='none';ep.style.opacity='0';}
+}
 function closeElevate(){
-  ['elevate-page','olympics-page','dbms-page','pixar-page','vcare-page','diabetes-page','facerec-page'].forEach(id=>{
+  ['elevate-page','olympics-page','dbms-page','pixar-page','vcare-page','diabetes-page','facerec-page','cognittiv-page'].forEach(id=>{
     const ep=document.getElementById(id);
     if(ep){ep.style.opacity='0';ep.style.pointerEvents='none';ep.scrollTop=0;}
   });
@@ -3053,6 +2603,144 @@ async function submitContact(){
     </div>
   </div>
 </div>
+
+<!-- COGNITTIV GTM DETAIL PAGE -->
+<div id="cognittiv-page" style="position:fixed;inset:0;z-index:9000;background:#05050a;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .5s;font-family:'DM Sans',system-ui,sans-serif;color:#dddde8">
+  <canvas id="ep-stars-cog" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:60px 64px 100px">
+    <button onclick="closePage('cognittiv-page')" style="display:flex;align-items:center;gap:10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:#f59e0b;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.12em;padding:10px 20px;border-radius:6px;cursor:pointer;transition:all .2s;margin-bottom:56px;text-transform:uppercase" onmouseover="this.style.background='rgba(245,158,11,.16)'" onmouseout="this.style.background='rgba(245,158,11,.08)'">← Back to Portfolio</button>
+    <!-- Header -->
+    <div style="margin-bottom:56px">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:#f59e0b;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <span>GTM Strategy</span><span style="width:36px;height:1px;background:#f59e0b;display:inline-block"></span>
+        <span>Industry Consulting</span><span style="width:36px;height:1px;background:#f59e0b;display:inline-block"></span>
+        <span>Spring 2026</span>
+      </div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,68px);font-weight:900;line-height:.95;letter-spacing:-.04em;color:#fff;margin-bottom:16px">Cognittiv AI<br><span style="color:#f59e0b">Go-To-Market Strategy</span></h1>
+      <p style="font-size:18px;color:#9090a8;font-weight:300;line-height:1.75;max-width:680px">Full 11-component market entry strategy for an AI cognitive-readiness platform entering the U.S. Petroleum Refining &amp; Chemicals supply chain — built for a real client under faculty supervision at the UH Bauer Gutierrez Energy Management Institute.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px">
+        <span style="font-family:'DM Mono',monospace;font-size:11px;padding:5px 12px;border-radius:4px;background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)">Faculty-Supervised Industry Engagement</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;padding:5px 12px;border-radius:4px;background:rgba(103,232,249,.08);color:#67e8f9;border:1px solid rgba(103,232,249,.2)">Supervised by Greg Bean, Executive Director</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;padding:5px 12px;border-radius:4px;background:rgba(196,181,253,.08);color:#c4b5fd;border:1px solid rgba(196,181,253,.2)">Harpool · Arroyo · Hernandez · Munagala</span>
+      </div>
+    </div>
+    <!-- KPIs -->
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden;margin-bottom:56px">
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#f59e0b;line-height:1">$760<span style="font-size:16px">B</span></div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">Industry Revenue</div></div>
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#c4b5fd;line-height:1">132</div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">Refineries Mapped</div></div>
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#67e8f9;line-height:1">11</div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">GTM Components</div></div>
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#86efac;line-height:1">4</div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">Beachhead Sites</div></div>
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#f9c74f;line-height:1">5yr</div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">OSHA Dataset</div></div>
+      <div style="background:#0d0b06;padding:22px 14px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#f9a8d4;line-height:1">10+</div><div style="font-family:'DM Mono',monospace;font-size:10px;color:#585870;letter-spacing:.08em;margin-top:6px;text-transform:uppercase">Agencies Mapped</div></div>
+    </div>
+    <!-- Content grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <!-- Overview -->
+      <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px">
+        <div style="font-size:12px;font-weight:600;color:#f59e0b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px">What Cognittiv Does <span style="flex:1;height:1px;background:rgba(255,255,255,.07);display:inline-block"></span></div>
+        <p style="font-size:15px;color:#9090a8;line-height:1.8;margin-bottom:14px">Cognittiv is an AI platform using <strong style="color:#dddde8">neuroscience-based assessment</strong> to measure daily cognitive readiness across industrial workforces — flagging elevated fatigue, coordination strain, and cognitive overload before incidents occur.</p>
+        <p style="font-size:15px;color:#9090a8;line-height:1.8">Our team built the <strong style="color:#dddde8">complete GTM strategy</strong> for its entry into U.S. Petroleum Refining — one of the most operationally complex, risk-averse industrial environments in existence.</p>
+      </div>
+      <!-- TAM/SAM/SOM -->
+      <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px">
+        <div style="font-size:12px;font-weight:600;color:#67e8f9;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px">Market Sizing · TAM / SAM / SOM</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="padding:12px 14px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:6px;border-left:3px solid #f59e0b">
+            <div style="font-size:12px;color:#f59e0b;font-family:'DM Mono',monospace;letter-spacing:.06em;margin-bottom:4px">TAM · Total Addressable Market</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500">132 U.S. Refineries — All Sizes &amp; Complexity</div>
+          </div>
+          <div style="padding:12px 14px;background:rgba(103,232,249,.06);border:1px solid rgba(103,232,249,.18);border-radius:6px;border-left:3px solid #67e8f9;margin:0 16px">
+            <div style="font-size:12px;color:#67e8f9;font-family:'DM Mono',monospace;letter-spacing:.06em;margin-bottom:4px">SAM · Serviceable Market</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500">~40 Large Complex Refineries (&gt;200k BPD)</div>
+          </div>
+          <div style="padding:12px 14px;background:rgba(134,239,172,.06);border:1px solid rgba(134,239,172,.18);border-radius:6px;border-left:3px solid #86efac;margin:0 32px">
+            <div style="font-size:12px;color:#86efac;font-family:'DM Mono',monospace;letter-spacing:.06em;margin-bottom:4px">SOM · Beachhead</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500">4 Gulf Coast Refineries · Highest Complexity</div>
+            <div style="font-size:12px;color:#9090a8;margin-top:4px">Motiva Port Arthur · ExxonMobil Baytown · Chevron Richmond · Marathon Garyville</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- NCI + OSHA row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <!-- NCI -->
+      <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px">
+        <div style="font-size:12px;font-weight:600;color:#c4b5fd;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px">Nelson Complexity Index Framework</div>
+        <p style="font-size:14px;color:#9090a8;line-height:1.75;margin-bottom:16px">Built a custom <strong style="color:#dddde8">NCI-based segmentation model</strong> assigning complexity scores per process unit type (distillation, FCC, coking, hydrocracking) × BPD capacity to derive estimated workforce headcount per facility — producing a ranked, prioritized list of all U.S. refineries for targeting.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(134,239,172,.06);border:1px solid rgba(134,239,172,.15);border-radius:5px"><span style="font-size:13px;color:#86efac">Beachhead (NCI 12–15+)</span><span style="font-family:'DM Mono',monospace;font-size:11px;color:#86efac">Extreme complexity</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:5px"><span style="font-size:13px;color:#f59e0b">SAM (NCI 8–12)</span><span style="font-family:'DM Mono',monospace;font-size:11px;color:#f59e0b">Heavy conversion</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px"><span style="font-size:13px;color:#9090a8">Standard (NCI 4–8)</span><span style="font-family:'DM Mono',monospace;font-size:11px;color:#585870">Moderate complexity</span></div>
+        </div>
+      </div>
+      <!-- OSHA -->
+      <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px">
+        <div style="font-size:12px;font-weight:600;color:#f9a8d4;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px">OSHA Injury Analysis · 2020–2024</div>
+        <p style="font-size:14px;color:#9090a8;line-height:1.7;margin-bottom:16px">Pulled 5 years of OSHA incident data (NAICS 324110), built a <strong style="color:#dddde8">Power BI dashboard</strong> on the dataset, and mapped injury types to high-risk roles.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 12px;background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.15);border-radius:5px"><span style="font-size:15px">🔥</span><div><div style="font-size:13px;color:#f87171;font-weight:500">Vapor / liquid ignition</div><div style="font-size:11px;color:#585870">Welders · Boilermakers · Pipefitters</div></div></div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 12px;background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-radius:5px"><span style="font-size:15px">♨️</span><div><div style="font-size:13px;color:#fb923c;font-weight:500">Contact with hot objects</div><div style="font-size:11px;color:#585870">Pipefitters · Mechanical technicians</div></div></div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 12px;background:rgba(103,232,249,.05);border:1px solid rgba(103,232,249,.12);border-radius:5px"><span style="font-size:15px">⚙️</span><div><div style="font-size:13px;color:#67e8f9;font-weight:500">Compression by shifting objects</div><div style="font-size:11px;color:#585870">Riggers · Heavy equipment operators</div></div></div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 12px;background:rgba(196,181,253,.05);border:1px solid rgba(196,181,253,.12);border-radius:5px"><span style="font-size:15px">⬇️</span><div><div style="font-size:13px;color:#c4b5fd;font-weight:500">Falls from elevation</div><div style="font-size:11px;color:#585870">Scaffold builders · Welders at height</div></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- GTM Phases + Pricing -->
+    <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-bottom:24px">
+      <!-- 3-phase GTM -->
+      <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px">
+        <div style="font-size:12px;font-weight:600;color:#f9c74f;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">3-Phase Land-and-Expand GTM</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="padding:14px 16px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);border-radius:7px;border-top:2px solid #f59e0b">
+            <div style="font-size:12px;color:#f59e0b;font-family:'DM Mono',monospace;margin-bottom:6px">Phase 01 · Entry</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500;margin-bottom:5px">90-day pilot at beachhead refinery</div>
+            <div style="font-size:13px;color:#9090a8">Discounted POC pricing. Measure cognitive readiness scores, near-miss reduction, workforce adoption. Build internal plant-level champions.</div>
+          </div>
+          <div style="padding:14px 16px;background:rgba(103,232,249,.05);border:1px solid rgba(103,232,249,.15);border-radius:7px;border-top:2px solid #67e8f9">
+            <div style="font-size:12px;color:#67e8f9;font-family:'DM Mono',monospace;margin-bottom:6px">Phase 02 · Expand</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500;margin-bottom:5px">Full-site → multi-site deployment</div>
+            <div style="font-size:13px;color:#9090a8">Convert pilot to site-wide contract. Extend to all operator sites. Standardize safety insights across operations.</div>
+          </div>
+          <div style="padding:14px 16px;background:rgba(134,239,172,.04);border:1px solid rgba(134,239,172,.12);border-radius:7px;border-top:2px solid #86efac">
+            <div style="font-size:12px;color:#86efac;font-family:'DM Mono',monospace;margin-bottom:6px">Phase 03 · Scale</div>
+            <div style="font-size:14px;color:#dddde8;font-weight:500;margin-bottom:5px">Enterprise + industry standard</div>
+            <div style="font-size:13px;color:#9090a8">Corporate-level contracts, partner-leveraged expansion, category standard positioning across U.S. refining.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Pricing + Stack -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:26px;flex:1">
+          <div style="font-size:12px;font-weight:600;color:#86efac;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">Pricing Architecture</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:13px;color:#9090a8"><span style="color:#dddde8;font-weight:500">Subscription-based</span> · Annual/multi-year at site level</div>
+            <div style="font-size:13px;color:#9090a8"><span style="color:#dddde8;font-weight:500">Tiered by NCI × headcount</span> · Higher complexity = higher value</div>
+            <div style="font-size:13px;color:#9090a8"><span style="color:#dddde8;font-weight:500">Pilot/POC entry</span> · 3–6 months discounted</div>
+            <div style="font-size:13px;color:#9090a8"><span style="color:#dddde8;font-weight:500">Value-based (long-term)</span> · % of incident cost savings</div>
+          </div>
+        </div>
+        <div style="background:#0e0e18;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:26px">
+          <div style="font-size:12px;font-weight:600;color:#c4b5fd;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">Analytical Stack</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.22);color:#f59e0b">Power BI + DAX</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.22);color:#f59e0b">Excel</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">OSHA Public Data</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">NCI Methodology</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">IBIS World</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">Barnes Reports</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">TAM/SAM/SOM</span>
+            <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#dddde8">Stakeholder Mapping</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Confidentiality note -->
+    <div style="padding:16px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;font-size:13px;color:#585870;line-height:1.7">
+      <span style="color:#9090a8;font-weight:500">Portfolio note:</span> This was a faculty-supervised industry consulting engagement with a technology client. Frameworks and methodologies are shared here. Specific client strategies and proprietary data are not disclosed.
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cognittiv GTM Strategy · Dhanush Munagala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0e10;
+    --bg2: #13151a;
+    --bg3: #1b1e26;
+    --border: rgba(255,255,255,0.08);
+    --border-hi: rgba(255,255,255,0.15);
+    --text: #e8e6e0;
+    --muted: #7a7870;
+    --accent: #d4873a;
+    --accent-light: #f0a855;
+    --accent-dim: rgba(212,135,58,0.12);
+    --teal: #2a9d7c;
+    --teal-dim: rgba(42,157,124,0.12);
+    --blue: #3a7bd5;
+    --blue-dim: rgba(58,123,213,0.12);
+    --red-dim: rgba(200,70,70,0.12);
+    --font-serif: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* ── nav ── */
+  .back-nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 48px; border-bottom: 0.5px solid var(--border);
+    background: rgba(13,14,16,0.92); backdrop-filter: blur(12px);
+    font-size: 13px; color: var(--muted);
+  }
+  .back-nav a { color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+  .back-nav a:hover { color: var(--text); }
+  .back-nav .sep { opacity: .35; }
+  .back-nav .crumb { color: var(--text); }
+
+  /* ── layout ── */
+  .page { max-width: 900px; margin: 0 auto; padding: 60px 48px 120px; }
+
+  /* ── header ── */
+  .project-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+  }
+  .project-eyebrow .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }
+  .project-eyebrow .tag {
+    background: var(--accent-dim); color: var(--accent-light);
+    padding: 3px 10px; border-radius: 20px; font-size: 11px;
+    border: 0.5px solid rgba(212,135,58,.25);
+  }
+
+  h1.project-title {
+    font-family: var(--font-serif); font-size: clamp(32px, 5vw, 50px);
+    font-weight: 400; line-height: 1.1; letter-spacing: -.01em;
+    color: #f0ede6; margin-bottom: 8px;
+  }
+  h1.project-title em { font-style: italic; color: var(--accent-light); }
+
+  .project-sub { font-size: 16px; color: var(--muted); margin-bottom: 32px; line-height: 1.5; }
+
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 20px;
+    font-size: 13px; color: var(--muted);
+    padding: 18px 0; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .meta-item { display: flex; align-items: center; gap: 8px; }
+  .meta-item svg { width: 14px; height: 14px; opacity: .5; flex-shrink: 0; }
+  .meta-item span { color: var(--text); }
+  .meta-badge {
+    background: var(--bg3); border: 0.5px solid var(--border);
+    border-radius: 20px; padding: 3px 12px; font-size: 11px;
+    color: var(--teal); letter-spacing: .04em;
+  }
+
+  /* ── metrics grid ── */
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 56px; }
+  .metric-card {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg); padding: 20px 20px 16px;
+    transition: border-color .2s;
+  }
+  .metric-card:hover { border-color: var(--border-hi); }
+  .metric-val {
+    font-family: var(--font-serif); font-size: 32px;
+    color: #f0ede6; line-height: 1; margin-bottom: 6px;
+    letter-spacing: -.01em;
+  }
+  .metric-val.accent { color: var(--accent-light); }
+  .metric-val.teal { color: var(--teal); }
+  .metric-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* ── section headings ── */
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+  h2.section-title {
+    font-family: var(--font-serif); font-size: 26px; font-weight: 400;
+    color: #f0ede6; margin-bottom: 16px; line-height: 1.2;
+  }
+  p.body { color: #a8a49c; line-height: 1.8; margin-bottom: 16px; }
+  p.body strong { color: var(--text); font-weight: 500; }
+
+  /* ── TAM/SAM/SOM funnel ── */
+  .funnel-wrap { margin: 32px 0; }
+  .funnel-tier {
+    display: flex; align-items: stretch; margin-bottom: 3px;
+    cursor: pointer; transition: opacity .2s;
+  }
+  .funnel-tier:hover .funnel-bar { border-color: var(--border-hi); }
+  .funnel-bar {
+    flex: 1; padding: 20px 24px;
+    border: 0.5px solid var(--border); border-radius: var(--radius);
+    background: var(--bg2); transition: background .2s;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .funnel-tier.t1 .funnel-bar { border-left: 3px solid var(--accent); }
+  .funnel-tier.t2 .funnel-bar { border-left: 3px solid var(--teal); margin: 0 24px; }
+  .funnel-tier.t3 .funnel-bar { border-left: 3px solid var(--blue); margin: 0 48px; }
+  .funnel-left { flex: 1; }
+  .funnel-name { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
+  .funnel-tier.t1 .funnel-name { color: var(--accent); }
+  .funnel-tier.t2 .funnel-name { color: var(--teal); }
+  .funnel-tier.t3 .funnel-name { color: var(--blue); }
+  .funnel-desc { font-size: 14px; color: var(--text); font-weight: 500; }
+  .funnel-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .funnel-num { font-family: var(--font-serif); font-size: 28px; color: #f0ede6; white-space: nowrap; }
+  .funnel-connector { width: 0.5px; background: var(--border); height: 8px; margin: 0 auto 3px; }
+
+  /* ── NCI tier table ── */
+  .tier-grid { display: grid; gap: 10px; margin: 24px 0; }
+  .tier-row {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px;
+    display: grid; grid-template-columns: 90px 1fr 1fr;
+    align-items: center; gap: 12px;
+    transition: border-color .2s;
+  }
+  .tier-row:hover { border-color: var(--border-hi); }
+  .tier-row.beachhead { border-color: rgba(42,157,124,.3); background: linear-gradient(135deg, var(--bg2), rgba(42,157,124,.04)); }
+  .tier-badge {
+    font-size: 11px; font-weight: 500; letter-spacing: .04em;
+    padding: 4px 10px; border-radius: 20px; text-align: center;
+    background: var(--bg3);
+  }
+  .tier-badge.extreme { background: rgba(200,70,70,.15); color: #e07070; border: 0.5px solid rgba(200,70,70,.3); }
+  .tier-badge.high { background: rgba(212,135,58,.15); color: var(--accent-light); border: 0.5px solid rgba(212,135,58,.3); }
+  .tier-badge.medium { background: var(--teal-dim); color: var(--teal); border: 0.5px solid rgba(42,157,124,.3); }
+  .tier-name { font-size: 14px; color: var(--text); font-weight: 500; }
+  .tier-detail { font-size: 12px; color: var(--muted); }
+  .tier-stat { font-size: 12px; color: var(--muted); text-align: right; }
+  .tier-stat strong { color: var(--text); font-size: 14px; display: block; }
+
+  /* ── injury analysis ── */
+  .injury-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+  .injury-card {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .injury-icon {
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .injury-icon.fire { background: rgba(200,70,70,.15); }
+  .injury-icon.compress { background: rgba(212,135,58,.15); }
+  .injury-icon.fall { background: rgba(58,123,213,.15); }
+  .injury-icon.heat { background: rgba(240,168,85,.15); }
+  .injury-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .injury-roles { font-size: 12px; color: var(--muted); }
+
+  /* ── deliverables list ── */
+  .deliverables { display: grid; gap: 10px; margin: 24px 0; }
+  .deliverable {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px 16px;
+    display: flex; gap: 16px;
+    transition: border-color .2s;
+  }
+  .deliverable:hover { border-color: var(--border-hi); }
+  .del-num {
+    font-family: var(--font-serif); font-size: 22px; color: var(--accent);
+    opacity: .6; line-height: 1; flex-shrink: 0; padding-top: 2px;
+  }
+  .del-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+  .del-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .del-tag {
+    display: inline-block; font-size: 11px; padding: 2px 8px;
+    border-radius: 4px; margin-top: 8px; margin-right: 4px;
+    background: var(--bg3); color: var(--muted);
+    border: 0.5px solid var(--border);
+  }
+
+  /* ── GTM phases ── */
+  .phases { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 24px 0; }
+  .phase-card {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 20px;
+    position: relative; overflow: hidden;
+  }
+  .phase-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .phase-card.p1::before { background: var(--accent); }
+  .phase-card.p2::before { background: var(--teal); }
+  .phase-card.p3::before { background: var(--blue); }
+  .phase-num { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .phase-card.p1 .phase-num { color: var(--accent); }
+  .phase-card.p2 .phase-num { color: var(--teal); }
+  .phase-card.p3 .phase-num { color: var(--blue); }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 10px; }
+  .phase-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── stack tags ── */
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+  .stack-tag {
+    font-size: 12px; padding: 6px 14px;
+    border: 0.5px solid var(--border); border-radius: 20px;
+    color: var(--muted); background: var(--bg2);
+    transition: border-color .2s, color .2s;
+  }
+  .stack-tag:hover { border-color: var(--border-hi); color: var(--text); }
+  .stack-tag.highlight { border-color: rgba(212,135,58,.3); color: var(--accent-light); background: var(--accent-dim); }
+
+  /* ── confidentiality notice ── */
+  .conf-notice {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px;
+    display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 48px;
+  }
+  .conf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: 8px; }
+  .conf-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── responsive ── */
+  @media (max-width: 640px) {
+    .page { padding: 40px 24px 80px; }
+    .back-nav { padding: 14px 24px; }
+    .injury-grid { grid-template-columns: 1fr; }
+    .phases { grid-template-columns: 1fr; }
+    .tier-row { grid-template-columns: 80px 1fr; }
+    .tier-stat { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── back nav ── -->
+<nav class="back-nav">
+  <a href="index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Back to Portfolio
+  </a>
+  <span class="sep">·</span>
+  <span class="crumb">Cognittiv GTM Strategy</span>
+</nav>
+
+<main class="page">
+
+  <!-- ── header ── -->
+  <div class="project-eyebrow">
+    <span>GTM Strategy</span>
+    <span class="dot"></span>
+    <span>Market Analytics</span>
+    <span class="dot"></span>
+    <span>Industry Consulting</span>
+    <span class="tag">Industry Engagement · Spring 2026</span>
+  </div>
+
+  <h1 class="project-title">
+    Go-To-Market Strategy:<br/>
+    <em>Cognittiv AI</em> · U.S. Petroleum Refining
+  </h1>
+  <p class="project-sub">
+    A full 11-component market entry strategy for an AI cognitive-readiness platform entering the U.S. Refining & Petrochemicals supply chain — developed under faculty supervision at the UH Bauer Gutierrez Energy Management Institute.
+  </p>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="12" height="10" rx="1.5"/><path d="M5 4V3M11 4V3M2 8h12"/></svg>
+      <span>Spring 2026 · Feb – May</span>
+    </div>
+    <div class="meta-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="6" r="3"/><path d="M2.5 13.5c0-2.485 2.462-4.5 5.5-4.5s5.5 2.015 5.5 4.5"/></svg>
+      <span>Harpool · Arroyo · Hernandez · <strong>Munagala</strong></span>
+    </div>
+    <div class="meta-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2L2 6v8h4v-4h4v4h4V6L8 2z"/></svg>
+      <span>Supervised by Greg Bean, Executive Director — Gutierrez Energy Management Institute</span>
+    </div>
+    <span class="meta-badge">Faculty-Supervised Industry Consulting</span>
+  </div>
+
+  <!-- ── metrics ── -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-val accent">$760B</div>
+      <div class="metric-label">U.S. Petroleum Refining market revenue analyzed (NAICS 32411, 2026)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">132</div>
+      <div class="metric-label">U.S. refineries mapped in total addressable market</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val teal">11</div>
+      <div class="metric-label">GTM strategy components delivered end-to-end</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">4</div>
+      <div class="metric-label">Beachhead refinery sites segmented for initial market entry</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val accent">5yrs</div>
+      <div class="metric-label">OSHA injury trend data analyzed (NAICS 324110, 2020–2024)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">10+</div>
+      <div class="metric-label">Contractor agencies and turnaround firms mapped in workforce taxonomy</div>
+    </div>
+  </div>
+
+  <!-- ── confidentiality notice ── -->
+  <div class="conf-notice">
+    <div class="conf-dot"></div>
+    <div class="conf-text">
+      This project was conducted as a faculty-supervised industry consulting engagement with a technology client. Deliverable frameworks and methodologies are shared here for portfolio purposes. Specific client strategy details and proprietary data are not disclosed.
+    </div>
+  </div>
+
+  <!-- ── project overview ── -->
+  <div class="section">
+    <div class="section-label">01 · Overview</div>
+    <h2 class="section-title">What we built and why it mattered</h2>
+    <p class="body">
+      Cognittiv is an AI platform that uses neuroscience-based assessment to measure daily cognitive readiness across industrial workforces — flagging elevated fatigue, coordination strain, and cognitive overload before they result in workplace incidents. Our team was engaged to develop the complete Go-To-Market strategy for Cognittiv's entry into the <strong>U.S. Petroleum Refining market</strong>, one of the most operationally complex, safety-critical, and risk-averse industrial environments in the world.
+    </p>
+    <p class="body">
+      The U.S. refining industry processes roughly 18 million barrels of crude oil daily across 132 active refineries. Turnaround and maintenance periods — when 72–90% of the on-site workforce consists of contractors — represent the highest-risk operational windows, and the window where Cognittiv's cognitive readiness platform delivers the most measurable value.
+    </p>
+    <p class="body">
+      Our task was not to theorize about this market — it was to produce a <strong>deployment-ready strategy</strong>: who to sell to first, how to size the opportunity, what roles carry the highest risk, how to price for adoption, and how to build trust in a relationship-driven, slow-moving industry where unproven technology faces significant resistance.
+    </p>
+  </div>
+
+  <!-- ── TAM/SAM/SOM ── -->
+  <div class="section">
+    <div class="section-label">02 · Market Sizing</div>
+    <h2 class="section-title">TAM / SAM / SOM quantification</h2>
+    <p class="body">
+      We conducted a three-layer market sizing using IBIS World industry data (NAICS 32411), Barnes Reports 2026, Oxford Economics, and public EIA refinery capacity data. The segmentation logic was driven by operational complexity, safety exposure, and digital transformation readiness — not just revenue size.
+    </p>
+    <div class="funnel-wrap">
+      <div class="funnel-tier t1">
+        <div class="funnel-bar">
+          <div class="funnel-left">
+            <div class="funnel-name">Total Addressable Market</div>
+            <div class="funnel-desc">All U.S. petroleum refineries</div>
+            <div class="funnel-sub">All sizes, all complexity levels, all geographic regions</div>
+          </div>
+          <div class="funnel-num">132</div>
+        </div>
+      </div>
+      <div class="funnel-connector"></div>
+      <div class="funnel-tier t2">
+        <div class="funnel-bar">
+          <div class="funnel-left">
+            <div class="funnel-name">Serviceable Addressable Market</div>
+            <div class="funnel-desc">Large, complex refineries (&gt;200k BPD)</div>
+            <div class="funnel-sub">High operational complexity, heavy contractor usage, frequent turnarounds, major OSHA/PSM exposure</div>
+          </div>
+          <div class="funnel-num">~40</div>
+        </div>
+      </div>
+      <div class="funnel-connector"></div>
+      <div class="funnel-tier t3">
+        <div class="funnel-bar">
+          <div class="funnel-left">
+            <div class="funnel-name">Serviceable Obtainable Market · Beachhead</div>
+            <div class="funnel-desc">Gulf Coast, highest-complexity, turnaround-intensive</div>
+            <div class="funnel-sub">Motiva Port Arthur · ExxonMobil Baytown · Chevron Richmond · Marathon Garyville</div>
+          </div>
+          <div class="funnel-num">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NCI Methodology ── -->
+  <div class="section">
+    <div class="section-label">03 · Analytical Framework</div>
+    <h2 class="section-title">Nelson Complexity Index (NCI) methodology</h2>
+    <p class="body">
+      The centerpiece of our segmentation framework was the <strong>Nelson Complexity Index</strong> — a real industry metric used by refiners, investment banks, and energy consultants to quantify the sophistication of a refinery's process unit configuration. We adapted NCI for GTM segmentation: higher complexity means more process units, larger contractor workforces, more turnaround frequency, and higher cognitive load on workers — directly mapping to Cognittiv's value proposition.
+    </p>
+    <p class="body">
+      We assigned NCI weights per process type (distillation, fluid catalytic cracking, coking, hydrocracking, reforming, etc.), then multiplied by each refinery's BPD (barrels per day) capacity to derive an <strong>estimated operational headcount</strong> per facility. This gave us a ranked, prioritized list of U.S. refineries segmented by complexity tier — from which our SOM beachhead targets were selected.
+    </p>
+
+    <div class="tier-grid">
+      <div class="tier-row beachhead">
+        <div class="tier-badge medium">Beachhead</div>
+        <div>
+          <div class="tier-name">Extreme Complexity Tier</div>
+          <div class="tier-detail">Motiva Port Arthur · ExxonMobil Baytown · Chevron Richmond · Marathon Garyville</div>
+        </div>
+        <div class="tier-stat"><strong>NCI 12–15+</strong> highest complexity score range</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge high">SAM</div>
+        <div>
+          <div class="tier-name">High Complexity Tier</div>
+          <div class="tier-detail">200k+ BPD refineries with coking, hydrocracking, and FCC units</div>
+        </div>
+        <div class="tier-stat"><strong>NCI 8–12</strong> heavy conversion capability</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge medium">TAM</div>
+        <div>
+          <div class="tier-name">Standard Complexity Tier</div>
+          <div class="tier-detail">Mid-size refineries with standard distillation and reforming</div>
+        </div>
+        <div class="tier-stat"><strong>NCI 4–8</strong> moderate process diversity</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge" style="background:var(--bg3);color:var(--muted);">TAM Edge</div>
+        <div>
+          <div class="tier-name">Low Complexity Tier</div>
+          <div class="tier-detail">Simple refineries, limited turnaround exposure, smaller workforces</div>
+        </div>
+        <div class="tier-stat"><strong>NCI &lt;4</strong> topping/skimming only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OSHA Safety Analysis ── -->
+  <div class="section">
+    <div class="section-label">04 · Safety & Workforce Research</div>
+    <h2 class="section-title">OSHA injury analysis & high-risk role mapping</h2>
+    <p class="body">
+      We pulled five years of OSHA incident data (2020–2024, NAICS 324110) to identify the top injury types, the roles most exposed, and the beachhead refineries' individual safety incident histories. A <strong>Power BI dashboard</strong> was built on this dataset to surface trends across injury type, severity, and role function.
+    </p>
+
+    <div class="injury-grid">
+      <div class="injury-card">
+        <div class="injury-icon fire">🔥</div>
+        <div>
+          <div class="injury-title">Ignition of vapor / harmful liquids</div>
+          <div class="injury-roles">Welders · Boilermakers · Pipefitters during hot work in hydrocarbon atmospheres</div>
+        </div>
+      </div>
+      <div class="injury-card">
+        <div class="injury-icon heat">♨️</div>
+        <div>
+          <div class="injury-title">Contact with hot objects / substances</div>
+          <div class="injury-roles">Pipefitters · Boilermakers · Mechanical technicians near heated systems</div>
+        </div>
+      </div>
+      <div class="injury-card">
+        <div class="injury-icon compress">⚙️</div>
+        <div>
+          <div class="injury-title">Compressed by shifting objects</div>
+          <div class="injury-roles">Riggers · Pipefitters · Heavy equipment operators during lifts and material movement</div>
+        </div>
+      </div>
+      <div class="injury-card">
+        <div class="injury-icon fall">⬇️</div>
+        <div>
+          <div class="injury-title">Falls and slipping from elevation</div>
+          <div class="injury-roles">Scaffold builders · Welders · Structural fitters working at height up to 200ft</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:16px;">
+      We then built a comprehensive <strong>in-plant workforce taxonomy</strong> covering six functional areas — unit operators, control panel operators, routine maintenance, turnaround maintenance, inbound/outbound logistics, and utilities — and mapped 10+ active contractor agencies (Total Safety, Acuren Inspection, MISTRAS Group, C2O Americas, Stronghold Specialty, and others) operating in the Port Arthur/Beaumont corridor using job posting evidence and industry records.
+    </p>
+    <p class="body">
+      Key finding: <strong>72–90% of a refinery's turnaround workforce is contractors</strong>, hired in short windows with limited site familiarity — the highest-risk population and the core Cognittiv use case.
+    </p>
+  </div>
+
+  <!-- ── GTM Phases ── -->
+  <div class="section">
+    <div class="section-label">05 · Go-To-Market Approach</div>
+    <h2 class="section-title">Land-and-expand across three phases</h2>
+    <p class="body">
+      Petroleum refining is relationship-driven, highly risk-averse, and slow to adopt unproven technology. The GTM approach was designed around this reality: enter at low friction, prove value locally, then scale through demonstrated ROI.
+    </p>
+    <div class="phases">
+      <div class="phase-card p1">
+        <div class="phase-num">Phase 01 · Entry</div>
+        <div class="phase-title">Individual refinery pilot</div>
+        <div class="phase-desc">90-day pilot/POC at a single beachhead site. Discounted entry pricing. Goal: improved cognitive readiness scores, reduction in near-misses, positive workforce adoption. Build internal champions at plant level.</div>
+      </div>
+      <div class="phase-card p2">
+        <div class="phase-num">Phase 02 · Expand</div>
+        <div class="phase-title">Full-site and multi-site</div>
+        <div class="phase-desc">Convert pilot into full-site deployment. Extend to multiple sites within same operator. Standardize safety and workforce insights across operations. Shift to site-level subscription pricing.</div>
+      </div>
+      <div class="phase-card p3">
+        <div class="phase-num">Phase 03 · Scale</div>
+        <div class="phase-title">Enterprise & industry standard</div>
+        <div class="phase-desc">Corporate-level contracts with large operators. ROI case studies and partner-leveraged expansion. Establish Cognittiv as a category standard in human-performance safety across the industry.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Key Deliverables ── -->
+  <div class="section">
+    <div class="section-label">06 · Deliverables</div>
+    <h2 class="section-title">What we delivered</h2>
+    <div class="deliverables">
+      <div class="deliverable">
+        <div class="del-num">01</div>
+        <div>
+          <div class="del-title">Industry Sizing & Market Research</div>
+          <div class="del-desc">Multi-source synthesis: IBIS World NAICS 32411, Barnes Reports 2026, Oxford Economics, EIA refinery data. Revenue, establishment count, employment, geographic distribution, and 5-year trend analysis.</div>
+          <span class="del-tag">IBIS World</span><span class="del-tag">Barnes Reports</span><span class="del-tag">Excel</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">02</div>
+        <div>
+          <div class="del-title">NCI-Based Refinery Segmentation Framework</div>
+          <div class="del-desc">Custom analytical model assigning NCI scores per process unit type, multiplied by BPD capacity to estimate workforce headcount. Produced ranked prioritization of all U.S. refineries for GTM targeting.</div>
+          <span class="del-tag">NCI Methodology</span><span class="del-tag">BPD Capacity Analysis</span><span class="del-tag">Excel</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">03</div>
+        <div>
+          <div class="del-title">TAM / SAM / SOM Quantification</div>
+          <div class="del-desc">Three-layer market sizing model defining total opportunity, serviceable market, and beachhead entry targets. Four beachhead refineries identified and justified by complexity, headcount, turnaround exposure, and digital transformation readiness.</div>
+          <span class="del-tag">Market Sizing</span><span class="del-tag">Segmentation</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">04</div>
+        <div>
+          <div class="del-title">OSHA Safety Data Analysis & Power BI Dashboard</div>
+          <div class="del-desc">Five-year OSHA incident analysis (NAICS 324110, 2020–2024). Injury type classification, role-level exposure mapping, beachhead refinery incident history analysis. Interactive Power BI dashboard for trend visualization.</div>
+          <span class="del-tag">OSHA Public Data</span><span class="del-tag">Power BI</span><span class="del-tag">DAX</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">05</div>
+        <div>
+          <div class="del-title">Workforce Taxonomy & Contractor Agency Mapping</div>
+          <div class="del-desc">In-plant job function taxonomy across six categories. High-risk role identification by function (construction/extraction vs. turnaround maintenance). 10+ active contractor agencies mapped using job posting evidence.</div>
+          <span class="del-tag">Indeed Job Data</span><span class="del-tag">Role Risk Scoring</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">06</div>
+        <div>
+          <div class="del-title">Buyer & Stakeholder Map</div>
+          <div class="del-desc">Primary economic decision-makers (VP Operations, Refinery GM, Head of EHS) mapped against key influencers and adoption blockers (Plant Managers, Union Leadership, IT teams). Buying dynamics, sales cycle length, and trust threshold defined.</div>
+          <span class="del-tag">Stakeholder Analysis</span><span class="del-tag">B2B Sales Framework</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">07</div>
+        <div>
+          <div class="del-title">Pricing & Monetization Architecture</div>
+          <div class="del-desc">Five-component pricing model: subscription-based (site-level), tiered by NCI and headcount, pilot/POC entry (3–6 months discounted), land-and-expand to value-based (% of incident cost savings), and add-on module revenue streams.</div>
+          <span class="del-tag">Pricing Strategy</span><span class="del-tag">SaaS Monetization</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">08</div>
+        <div>
+          <div class="del-title">Channel & Credibility Partnering Strategy</div>
+          <div class="del-desc">Partner-led entry model through engineering firms, system integrators, and consulting firms already embedded in refinery operations. API industry association engagement. Pilot case study roadmap for credibility building.</div>
+          <span class="del-tag">Channel Strategy</span><span class="del-tag">Partner Ecosystem</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">09</div>
+        <div>
+          <div class="del-title">GTM Three-Phase Land-and-Expand Model</div>
+          <div class="del-desc">Full GTM execution plan: beachhead pilot → full-site deployment → enterprise contracts. Phase-by-phase success metrics, expansion criteria, and key GTM enablers defined (pilot-first selling, multi-stakeholder alignment, quantifiable ROI).</div>
+          <span class="del-tag">GTM Execution</span><span class="del-tag">Land-and-Expand</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">10</div>
+        <div>
+          <div class="del-title">Competitive Landscape Analysis</div>
+          <div class="del-desc">Direct and indirect competitive mapping across Process Safety & EHS platforms, workforce monitoring tools, and adjacent AI safety solutions. Differentiation strategy for Cognittiv's neuroscience-first positioning.</div>
+          <span class="del-tag">Competitive Intelligence</span><span class="del-tag">Positioning</span>
+        </div>
+      </div>
+      <div class="deliverable">
+        <div class="del-num">11</div>
+        <div>
+          <div class="del-title">Legal, Compliance & Non-Punitive Positioning Framework</div>
+          <div class="del-desc">OSHA and EPA regulatory alignment. Data privacy and security framework (encryption, role-based access, HR system separation). Non-punitive use policy distinguishing safety readiness from surveillance — critical for union-heavy, contractor-intensive environments.</div>
+          <span class="del-tag">OSHA/EPA Alignment</span><span class="del-tag">Data Privacy</span><span class="del-tag">Trust Strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Stack ── -->
+  <div class="section">
+    <div class="section-label">07 · Tools & Methods</div>
+    <h2 class="section-title">Analytical stack</h2>
+    <div class="stack">
+      <span class="stack-tag highlight">Power BI</span>
+      <span class="stack-tag highlight">Excel (Advanced)</span>
+      <span class="stack-tag highlight">OSHA Public Datasets</span>
+      <span class="stack-tag highlight">Nelson Complexity Index</span>
+      <span class="stack-tag">IBIS World (NAICS 32411)</span>
+      <span class="stack-tag">Barnes Reports 2026</span>
+      <span class="stack-tag">Oxford Economics</span>
+      <span class="stack-tag">EIA Refinery Data</span>
+      <span class="stack-tag">TAM / SAM / SOM Framework</span>
+      <span class="stack-tag">Indeed Job Posting Analysis</span>
+      <span class="stack-tag">Stakeholder Mapping</span>
+      <span class="stack-tag">B2B Pricing Architecture</span>
+      <span class="stack-tag">Competitive Analysis</span>
+      <span class="stack-tag">Land-and-Expand GTM</span>
+    </div>
+  </div>
+
+  <!-- ── key learnings ── -->
+  <div class="section">
+    <div class="section-label">08 · Reflection</div>
+    <h2 class="section-title">What this engagement taught me</h2>
+    <p class="body">
+      This was the first time I worked directly on a deliverable that a real company planned to act on — not a grade, not a simulation. The stakes changed the way I approached every analytical decision. The NCI segmentation methodology forced me to understand industrial engineering concepts I had never encountered, because the client's success depended on the framework being defensible, not just plausible.
+    </p>
+    <p class="body">
+      Working in the energy sector also taught me something that no data analytics course covers: <strong>industry trust is the actual product</strong>. The most technically perfect GTM strategy fails if it doesn't account for union dynamics, risk-aversion culture, and the relationship structures that govern how buying decisions actually get made. The pricing architecture, the channel strategy, and the non-punitive legal positioning were all shaped by that insight.
+    </p>
+    <p class="body">
+      Supervised by Greg Bean, Executive Director of the Bauer Gutierrez Energy Management Institute, this engagement gave me direct exposure to how energy-sector decision-makers evaluate new technology — experience I carry into every analytical role I take forward.
+    </p>
+  </div>
+
+</main>
+
+</body>
+</html>
